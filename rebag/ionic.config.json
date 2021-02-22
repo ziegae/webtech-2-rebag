@@ -1,0 +1,7 @@
+{
+  "name": "rebag",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
