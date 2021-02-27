@@ -30,6 +30,10 @@ export class Tab1Page implements OnInit, AfterViewInit {
         this.map.setZoom(14);
       });
     }
+  
+
    }
+
+
 
 }

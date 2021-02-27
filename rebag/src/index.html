@@ -21,10 +21,20 @@
    <!-- google maps -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdw5UTX_NKxU1fstqO84boyg_Py_teGPQ" 
     type="text/javascript"></script>
+
+      <!-- what3words -->
+  <script src="https://assets.what3words.com/sdk/v3/what3words.js?key=91Q4KE5R"></script>
+  
 </head>
 
 <body>
   <app-root></app-root>
 </body>
+
+<!-- Test what3words -->
+<script>
+  what3words.api.convertTo3wa({lat:51.508344, lng:-0.12549900}).then(function(response) {
+  console.log("[convertTo3wa]", response);});
+</script>
 
 </html>
