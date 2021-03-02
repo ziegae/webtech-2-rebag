@@ -2,17 +2,39 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  
   {
     path: '',
+    // loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  // {
+  //   path: 'tabs',
+  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  // },
+  {
+    path: 'start-page',
+    loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+   {
+        path: 'register/test',
+        loadChildren: () => import('./register/test/test.module').then( m => m.TestPageModule)
+      },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
     path: 'pin',
-    loadChildren: () => import('./pinPages/pin/pin.module').then( m => m.PinPageModule)
-  },
-  {
-    path: 'pin2',
-    loadChildren: () => import('./pinPages/pin/pin2/pin2.module').then( m => m.Pin2PageModule)
+    loadChildren: () => import('./pin/pin.module').then( m => m.PinPageModule)
   }
 ];
 @NgModule({
@@ -21,4 +43,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

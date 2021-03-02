@@ -1,25 +1,20 @@
- 
-<ion-content [fullscreen]="true">
-  <ion-content>
-     <ion-slides>
-     <ion-slide>
-        <div class="slide">
-          <img src="../assets/img/annie-spratt-blKQHxuHBgo-unsplash.jpg">
-          <h2>Slide 1</h2>
-          <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
-        </div>
-            </ion-slide>
-      <ion-slide>
-        <img src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
-        <h1>Slide 2</h1>
-      </ion-slide>
-      <ion-slide>
-        <img src="../assets/img/eduardo-santos-QxwPcAv3tcA-unsplash.jpg">
-        <h2>Slide 3</h2>
-      </ion-slide>
-    </ion-slides>
-    <div id="map" #mapElement></div>
-    <p>some text</p>
-  </ion-content>
-</ion-content>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button routerLink="/start-page" > Test Start Page</ion-button>
+  <ion-button routerLink="/register" >registrieren</ion-button>
+
+
+</ion-content>
