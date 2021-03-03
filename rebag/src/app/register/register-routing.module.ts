@@ -25,6 +25,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'onboarding',
+    loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingPageModule)
+  },
+  {
     path: 'input-name',
     loadChildren: () => import('./input-name/input-name.module').then(m => m.InputNamePageModule)
   },
