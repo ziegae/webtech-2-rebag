@@ -35,6 +35,14 @@ const routes: Routes = [
     path: '',
     redirectTo: '/start-page',
     pathMatch: 'full'
+  },
+  {
+    path: 'new-pin',
+    loadChildren: () => import('./new-pin/new-pin.module').then( m => m.NewPinPageModule)
+  },
+  {
+    path: 'add-image',
+    loadChildren: () => import('./add-image/add-image.module').then( m => m.AddImagePageModule)
   }
 ];
 @NgModule({
