@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { Plugins, CameraResultType } from '@capacitor/core';
+//pins als Markers bezeichnet, weil es ansonsten zu problemen gekommen ist
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
 import { styledMap } from '../mapStyle';
@@ -22,9 +23,11 @@ export class Tab1Page {
   @ViewChild('map',{read: ElementRef, static: false}) mapRef: ElementRef;
 
   infoWindows: any = [];
+  //pins als markers bezeichnet, weil es ansonsten zu problemen gekommen ist
   markers: any = [];
 
   constructor(private markersService:MarkersService) {
+    //marker aus service laden
     this.markersService.getMarkersSubject().subscribe(() => {
     this.loadMarkers();
     })

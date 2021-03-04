@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>overview</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{loadedPin.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <img src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+  </ion-item>
+
+  <ion-item>
+    <h2>{{loadedPin.name}}</h2>
+    <p>Adresse des Pins</p>
+  </ion-item>
+
+  <ion-item>
+    <h3>Status</h3>
+    <ion-item [routerLink]="['/pin/reset-availability']">Es fehlen Taschen</ion-item>
+    <ion-item [routerLink]="['/pin/reset-clean']">unsaubere Taschen</ion-item>
+  </ion-item>
+
+  <ion-item>
+    <h3>Probleme</h3>
+    <ion-item>Problem melden</ion-item>
+    <ion-item>Problemverlauf ansehen</ion-item>
+  </ion-item>
+
 
 </ion-content>

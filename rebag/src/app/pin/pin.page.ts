@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MarkersService } from '../services/pins.service';
+
 
 @Component({
   selector: 'app-pin',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PinPage implements OnInit {
 
-  constructor() { }
+  markers: any = [];
+
+  constructor(private markersService: MarkersService) {
+    this.markersService.getMarkersSubject().subscribe(() => {
+      this.markers = this.markersService.getMarkers();
+    });
+  }
 
   ngOnInit() {
+   
   }
 
 }
