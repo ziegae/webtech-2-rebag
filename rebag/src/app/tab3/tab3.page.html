@@ -3,23 +3,23 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+    <ion-toolbar class="top-bar">
+      <ion-title size="large">Hey Miriam!</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="addSight()">
-          <ion-icon slot="icon-only" name="md-cog" >
+          <ion-icon class="top-icon" slot="icon-only" name="cog" >
   
           </ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
 
-    <ion-item-sliding *ngFor="let marker of markers">
-      <ion-item>
-        {{marker.name}}
-      </ion-item>
-    </ion-item-sliding>
-
   </ion-header>
-  
+
+  <ion-item-sliding *ngFor="let marker of markers">
+    <ion-item>
+      {{marker.name}}
+    </ion-item>
+  </ion-item-sliding>
 </ion-content>
+

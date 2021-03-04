@@ -39,7 +39,7 @@ export class Tab1Page {
     this.showMap();
   }
 
-
+  //Generate Map
   showMap(){
     const styledMapType = new google.maps.StyledMapType( [
       {
@@ -195,6 +195,7 @@ export class Tab1Page {
     this.loadMarkers();
   }
 
+  //Load Markers from JSON
   loadMarkers()
   {
     for (let i = 0; i < this.markers.length; i++)
@@ -217,6 +218,7 @@ export class Tab1Page {
     }
   }
 
+  //Add Markers To Map
   addMarkersToMap(markers) {
     for(let marker of markers){
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
@@ -230,33 +232,11 @@ export class Tab1Page {
       });
 
       mapMarker.setMap(this.map);
-      this.addInfoWindowToMarker(mapMarker);
     }
   }
 
-  addInfoWindowToMarker(marker){
-    let infoWindowContent = 'div id="content">' +
-                            'h2 id="firstHeading" class="firstHeading">' + marker.title + '</h2>' +
-                            '<p>Latitude: ' + marker.latitude + '</p>' +
-                            '>p>Longitude: ' + marker.longitude + '</p>' +
-                            '</div>';
-
-    let infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
-    });
-
-    marker.addListener('click', () => {
-      this.closeAllInfoWindows();
-      infoWindow.open(this.map, marker);
-    });
-    this.infoWindows.push(infoWindow);
-  }
-
-  closeAllInfoWindows() {
-    for(let window of this.infoWindows){
-      window.close();
-    }
-  }
+  
+   
 
   
 }

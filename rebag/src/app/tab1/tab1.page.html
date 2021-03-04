@@ -8,9 +8,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-   <!-- <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar> -->
+    <ion-toolbar class="top-bar">
+      <ion-title size="large">Hey Miriam!</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="addSight()">
+          <ion-icon class="top-icon" slot="icon-only" name="cog" >
+  
+          </ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
   </ion-header>
 
  <!-- <ion-button routerLink="/start-page" > Test Start Page</ion-button>
