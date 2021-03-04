@@ -16,7 +16,7 @@ export class MarkersService {
     }
     else
     {
-      this.http.get('../assets/pin-data.json').subscribe((data:any) => {
+      this.http.get('assets/pin-data.json').subscribe((data:any) => {
         this.markers = data;
         this.markersSubject.next();
       }, (error) => {

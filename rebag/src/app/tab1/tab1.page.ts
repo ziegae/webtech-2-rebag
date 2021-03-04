@@ -4,6 +4,7 @@ import { Plugins, CameraResultType } from '@capacitor/core';
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
 import { styledMap } from '../mapStyle';
+import { TestBed } from '@angular/core/testing';
 
 declare var google: any;
 
@@ -15,22 +16,21 @@ declare var google: any;
 export class Tab1Page {
 
   map: any;
-  latitude:number = 0;
-  longitude:number = 0;
+  latitude:number = 52.26794242552926;
+  longitude:number = 7.79301833329877;
 
   @ViewChild('map',{read: ElementRef, static: false}) mapRef: ElementRef;
 
-infoWindows: any = [];
-markers: any = [];
+  infoWindows: any = [];
+  markers: any = [];
 
-  constructor() {
-    
+  constructor(private markersService:MarkersService) {
+    this.markersService.getMarkersSubject().subscribe(() => {
+    this.loadMarkers();
+    })
  }
 
   ionViewDidEnter(){
-    this.latitude = 0.0;
-    this.longitude = 0.0;
-
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
       this.longitude = pos.coords.longitude;
@@ -41,6 +41,139 @@ markers: any = [];
 
 
   showMap(){
+    const styledMapType = new google.maps.StyledMapType( [
+      {
+        "featureType": "administrative.land_parcel",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#ffffff"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "stylers": [
+          {
+            "weight": 1.5
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "visibility": "on"
+          },
+          {
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#ffeb3b"
+          },
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#606060"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#333333"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#ffffff"
+          }
+        ]
+      }
+    ],
+    {name: "Styled Map"}
+  );
+
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       this.map.setCenter(latLng);
@@ -48,11 +181,40 @@ markers: any = [];
     });
 
     const options = {
-      disableDefaultUI: true
+      disableDefaultUI: true,
+      mapTypeControlOptions: {
+        mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
+      },
+    }
+    
+    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+    
+    this.addMarkersToMap(this.markers);
+    this.map.mapTypes.set("styled_map", styledMapType);
+    this.map.setMapTypeId("styled_map");
+    this.loadMarkers();
+  }
+
+  loadMarkers()
+  {
+    for (let i = 0; i < this.markers.length; i++)
+    {
+      this.markers[i].setMap(null);
     }
 
-    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    this.addMarkersToMap(this.markers);
+    this.markers.length = 0;
+
+
+    for (let i = 0; i < this.markersService.getMarkers().length; i++)
+    {
+      const latLng = new google.maps.LatLng(this.markersService.getMarkers()[i].coordinates[0], this.markersService.getMarkers()[i].coordinates[1]);
+        
+      this.markers.push(new google.maps.Marker({
+        position: latLng,
+        title: this.markersService.getMarkers()[i].name,
+        map: this.map
+      }));
+    }
   }
 
   addMarkersToMap(markers) {
@@ -61,7 +223,6 @@ markers: any = [];
       let mapMarker = new google.maps.Marker({
         position: position,
         name: marker.name,
-        coordinates: marker.coordinates,
         bagsAvailable: marker.bagsAvailable,
         bagsClean: marker.bagsClean,
         availabilityReport: marker.availabilityReport,

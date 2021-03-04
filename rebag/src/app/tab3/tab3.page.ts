@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MarkersService} from '../services/pins.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  markers: any = [];
+
+  constructor(private markersService:MarkersService) {
+    this.markers = this.markersService.getMarkers();
+    this.markersService.getMarkersSubject().subscribe(() => {
+      this.markers = this.markersService.getMarkers();
+    })
+  }
 
 }
