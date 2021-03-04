@@ -17,7 +17,6 @@ export class Tab1Page {
   map: any;
   latitude:number = 0;
   longitude:number = 0;
-  styledMapType: any;
 
   @ViewChild('map',{read: ElementRef, static: false}) mapRef: ElementRef;
 
@@ -45,7 +44,7 @@ markers: any = [];
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       this.map.setCenter(latLng);
-      this.map.setZoom(16);
+      this.map.setZoom(18);
     });
 
     const options = {

@@ -5,18 +5,13 @@ const routes: Routes = [
   
   {
     path: '',
-    // loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  // {
-  //   path: 'tabs',
-  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  // },
-  {
-    path: 'start-page',
     loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
   },
   {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+    {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
@@ -35,6 +30,19 @@ const routes: Routes = [
   {
     path: 'pin',
     loadChildren: () => import('./pin/pin.module').then( m => m.PinPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/start-page',
+    pathMatch: 'full'
+  },
+  {
+    path: 'new-pin',
+    loadChildren: () => import('./new-pin/new-pin.module').then( m => m.NewPinPageModule)
+  },
+  {
+    path: 'add-image',
+    loadChildren: () => import('./add-image/add-image.module').then( m => m.AddImagePageModule)
   }
 ];
 @NgModule({
