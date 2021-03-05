@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'reset-clean',
-    loadChildren: () => import('./reset-clean/reset-clean.module').then( m => m.ResetCleanPageModule)
+  //  loadChildren: () => import('./reset-clean/reset-clean.module').then( m => m.ResetCleanPageModule)
   },
   {
     path: 'reset-availability',
-    loadChildren: () => import('./reset-availability/reset-availability.module').then( m => m.ResetAvailabilityPageModule)
+  //  loadChildren: () => import('./reset-availability/reset-availability.module').then( m => m.ResetAvailabilityPageModule)
   }
 ];
 
