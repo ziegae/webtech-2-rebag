@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class MarkersService {
   markers:any = [];
   markersSubject:Subject<any> = new Subject<any>();
-  
+
+ 
   constructor(private http:HttpClient) { 
     if (localStorage.getItem('markers'))
     {
@@ -23,8 +26,6 @@ export class MarkersService {
       })
     }
   }
-
-  
 
   getMarkersSubject()
   {
@@ -42,6 +43,18 @@ export class MarkersService {
     this.markersSubject.next();
     localStorage.setItem('markers', JSON.stringify(this.markers));
   }
+
+
+
+  getPinId(pinId:string) {
+    return {
+    ...this.markers.find(pin => {
+    return pin.pinId === pinId;
+      })
+    };
+  }
+
+  
 /*
   delete(pin)
   {

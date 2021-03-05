@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar class="top-bar">
@@ -17,9 +18,11 @@
   </ion-header>
 
   <ion-item-sliding *ngFor="let marker of markers">
-    <ion-item>
-      {{marker.name}}
-    </ion-item>
-  </ion-item-sliding>
+      <ion-item [routerLink]="['/pin', marker.pinId]">
+        {{marker.name}}
+      </ion-item>
+    </ion-item-sliding>
+
+  
 </ion-content>
 
