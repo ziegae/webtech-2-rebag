@@ -17,34 +17,45 @@ declare var google: any;
 export class Tab1Page {
 
   map: any;
-  latitude:number = 52.26794242552926;
-  longitude:number = 7.79301833329877;
+  latitude: number = 52.26794242552926;
+  longitude: number = 7.79301833329877;
 
-  @ViewChild('map',{read: ElementRef, static: false}) mapRef: ElementRef;
+  @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
 
   infoWindows: any = [];
+
   //pins als markers bezeichnet, weil es ansonsten zu problemen gekommen ist
   markers: any = [];
 
-  constructor(private markersService:MarkersService) {
+  constructor(private markersService: MarkersService) {
     //marker aus service laden
     this.markersService.getMarkersSubject().subscribe(() => {
-    this.loadMarkers();
-    })
- }
+      this.loadMarkers();
+    });
+  }
+  ngOnInit() {
+    console.log("map screen initialisiert");
+  }
 
-  ionViewDidEnter(){
+
+  ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
       this.longitude = pos.coords.longitude;
     });
-    
+
     this.showMap();
+    console.log("map wird geladen");
+  }
+
+
+  ionViewDidEnter() {
+   
   }
 
   //Generate Map
-  showMap(){
-    const styledMapType = new google.maps.StyledMapType( [
+  showMap() {
+    const styledMapType = new google.maps.StyledMapType([
       {
         "featureType": "administrative.land_parcel",
         "stylers": [
@@ -174,8 +185,8 @@ export class Tab1Page {
         ]
       }
     ],
-    {name: "Styled Map"}
-  );
+      { name: "Styled Map" }
+    );
 
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -189,9 +200,10 @@ export class Tab1Page {
         mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
       },
     }
-    
+
+
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    
+
     this.addMarkersToMap(this.markers);
     this.map.mapTypes.set("styled_map", styledMapType);
     this.map.setMapTypeId("styled_map");
@@ -199,20 +211,17 @@ export class Tab1Page {
   }
 
   //Load Markers from JSON
-  loadMarkers()
-  {
-    for (let i = 0; i < this.markers.length; i++)
-    {
+  loadMarkers() {
+    for (let i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
 
     this.markers.length = 0;
 
 
-    for (let i = 0; i < this.markersService.getMarkers().length; i++)
-    {
+    for (let i = 0; i < this.markersService.getMarkers().length; i++) {
       const latLng = new google.maps.LatLng(this.markersService.getMarkers()[i].coordinates[0], this.markersService.getMarkers()[i].coordinates[1]);
-        
+
       this.markers.push(new google.maps.Marker({
         position: latLng,
         title: this.markersService.getMarkers()[i].name,
@@ -223,7 +232,7 @@ export class Tab1Page {
 
   //Add Markers To Map
   addMarkersToMap(markers) {
-    for(let marker of markers){
+    for (let marker of markers) {
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
       let mapMarker = new google.maps.Marker({
         position: position,
@@ -238,8 +247,8 @@ export class Tab1Page {
     }
   }
 
-  
-   
 
-  
+
+
+
 }

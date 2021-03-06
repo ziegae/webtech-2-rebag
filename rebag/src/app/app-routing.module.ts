@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  
+
   {
     path: '',
     loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
@@ -11,25 +11,21 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-    {
+  {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
-   {
-        path: 'register/test',
-        loadChildren: () => import('./register/test/test.module').then( m => m.TestPageModule)
-      },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
     path: 'pin',
-    loadChildren: () => import('./pin/pin.module').then( m => m.PinPageModule)
+    loadChildren: () => import('./pin/pin.module').then(m => m.PinPageModule)
   },
   {
     path: '',
@@ -38,11 +34,15 @@ const routes: Routes = [
   },
   {
     path: 'new-pin',
-    loadChildren: () => import('./new-pin/new-pin.module').then( m => m.NewPinPageModule)
+    loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
   },
   {
     path: 'add-image',
-    loadChildren: () => import('./add-image/add-image.module').then( m => m.AddImagePageModule)
+    loadChildren: () => import('./add-image/add-image.module').then(m => m.AddImagePageModule)
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
   }
 ];
 @NgModule({
