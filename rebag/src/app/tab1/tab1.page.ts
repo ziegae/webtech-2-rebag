@@ -19,12 +19,13 @@ declare var google: any;
 export class Tab1Page {
 
   map: any;
-  latitude:number = 52.26794242552926;
-  longitude:number = 7.79301833329877;
+  latitude: number = 52.26794242552926;
+  longitude: number = 7.79301833329877;
 
-  @ViewChild('map',{read: ElementRef, static: false}) mapRef: ElementRef;
+  @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
 
   infoWindows: any = [];
+
   //pins als markers bezeichnet, weil es ansonsten zu problemen gekommen ist
   markers: any = [];
 
@@ -34,19 +35,30 @@ export class Tab1Page {
     this.loadMarkers();
     });
  }
+ 
+  ngOnInit() {
+    console.log("map screen initialisiert");
+  }
 
-  ionViewDidEnter(){
+
+  ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
       this.longitude = pos.coords.longitude;
     });
-    
+
     this.showMap();
+    console.log("map wird geladen");
+  }
+
+
+  ionViewDidEnter() {
+   
   }
 
   //Generate Map
-  showMap(){
-    const styledMapType = new google.maps.StyledMapType( [
+  showMap() {
+    const styledMapType = new google.maps.StyledMapType([
       {
         "featureType": "administrative.land_parcel",
         "stylers": [
@@ -176,8 +188,8 @@ export class Tab1Page {
         ]
       }
     ],
-    {name: "Styled Map"}
-  );
+      { name: "Styled Map" }
+    );
 
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -191,7 +203,8 @@ export class Tab1Page {
         mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
       },
     }
-    
+
+
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
     
     
@@ -201,18 +214,15 @@ export class Tab1Page {
   }
 
   //Load Markers from JSON
-  loadMarkers()
-  {
-    for (let i = 0; i < this.markers.length; i++)
-    {
+  loadMarkers() {
+    for (let i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
 
     this.markers.length = 0;
 
 
-    for (let i = 0; i < this.markersService.getMarkers().length; i++)
-    {
+    for (let i = 0; i < this.markersService.getMarkers().length; i++) {
       const latLng = new google.maps.LatLng(this.markersService.getMarkers()[i].coordinates[0], this.markersService.getMarkers()[i].coordinates[1]);
         
       let mapMarker = new google.maps.Marker ({
@@ -287,5 +297,7 @@ export class Tab1Page {
     this.router.navigate(['/login'])
   }
 
-  
+
+
+
 }

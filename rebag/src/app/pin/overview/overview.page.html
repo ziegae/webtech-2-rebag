@@ -8,26 +8,46 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <img src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
-  </ion-item>
 
-  <ion-item>
-    <h2>{{loadedPin.name}}</h2>
-    <p>Adresse des Pins</p>
-  </ion-item>
+  <div class="img-container">
+    <img class="ion-no-padding ion-no-margin img-overview"
+      src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+  </div>
+  <ion-text>
+    <h1>{{loadedPin.name}}</h1>
+  </ion-text>
 
-  <ion-item>
-    <h3>Status</h3>
-    <ion-item [routerLink]="['/pin/reset-availability']">Es fehlen Taschen</ion-item>
-    <ion-item [routerLink]="['/pin/reset-clean']">unsaubere Taschen</ion-item>
-  </ion-item>
+  <ion-text>
+    <p>{{loadedPin.coordinates}}</p>
+  </ion-text>
 
-  <ion-item>
-    <h3>Probleme</h3>
+  <ion-text>
+    <h4>Status</h4>
+  </ion-text>
+
+    <ion-item class="" (click)="resetAvailabilityModal(); setOverviewPinId()">
+      <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsAvailable}}">
+      <ion-icon *ngIf="!loadedPin.bagsAvailable" slot="end" name="chevron-forward-outline"></ion-icon>
+      <ion-text>
+        {{txtBagsAvailable}}
+      </ion-text>
+    </ion-item>
+    <ion-item (click)="resetCleanModal(); setOverviewPinId()">
+      <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsClean}}">
+      <ion-icon *ngIf="!loadedPin.bagsClean" slot="end" name="chevron-forward-outline"></ion-icon>
+      <ion-text>
+        {{txtBagsClean}}
+      </ion-text>
+    </ion-item>
+ 
+
+  <ion-text>
+    <h4>Probleme</h4>
     <ion-item>Problem melden</ion-item>
     <ion-item>Problemverlauf ansehen</ion-item>
-  </ion-item>
+  </ion-text>
 
+  <div class="testDiv">
+  </div>
 
 </ion-content>

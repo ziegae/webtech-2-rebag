@@ -21,4 +21,7 @@ export class PinPage implements OnInit {
    
   }
 
+  statusBag(){
+    }
+  
 }

@@ -5,9 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-sliding *ngFor="let marker of markers">
-    <ion-item [routerLink]="['/pin', marker.pinId]">
-      {{marker.name}}
+    <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
+      <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood" ></div>
+      <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable" ></div>
+      <div *ngIf="!marker.bagsAvailable && marker.bagsClean" class="bagsUnavailable" ></div>
+       <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
+            {{marker.name}}
     </ion-item>
-  </ion-item-sliding>
-</ion-content>
+  </ion-content>
+

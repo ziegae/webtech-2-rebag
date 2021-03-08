@@ -1,25 +1,18 @@
-<ion-header [translucent]="true">
-  <!-- <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar> -->
+<ion-header>
+  <ion-toolbar class="top-bar">
+    <ion-title size="large">Hey Miriam!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon class="top-icon" slot="icon-only" name="cog" >
+
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
- <ion-header>
-    <ion-toolbar class="top-bar">
-      <ion-title size="large">Hey Miriam!</ion-title>
-      <ion-buttons slot="end">
-        <ion-button [routerLink]="['/settings']">
-          <ion-icon class="top-icon" slot="icon-only" name="cog" >
-  
-          </ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
 
-  </ion-header>
+<ion-content [fullscreen]="true">
 
  <!-- <ion-button routerLink="/start-page" > Test Start Page</ion-button>
   <ion-button routerLink="/register" >registrieren</ion-button>-->

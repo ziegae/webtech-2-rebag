@@ -8,12 +8,15 @@ import { TestPageRoutingModule } from './test-routing.module';
 
 import { TestPage } from './test.page';
 
+import {GoogleMapsModule} from '@angular/google-maps';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TestPageRoutingModule
+    TestPageRoutingModule,
+    GoogleMapsModule
   ],
   declarations: [TestPage]
 })
