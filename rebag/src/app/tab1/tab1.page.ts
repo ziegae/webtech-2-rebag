@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { ViewChild, ElementRef } from '@angular/core';
+import { ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Plugins, CameraResultType } from '@capacitor/core';
 //pins als Markers bezeichnet, weil es ansonsten zu problemen gekommen ist
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
 import { styledMap } from '../mapStyle';
 import { TestBed } from '@angular/core/testing';
+import { OverviewPage } from '../pin/overview/overview.page'
+import { Router } from '@angular/router';
 
 declare var google: any;
 
@@ -26,11 +28,11 @@ export class Tab1Page {
   //pins als markers bezeichnet, weil es ansonsten zu problemen gekommen ist
   markers: any = [];
 
-  constructor(private markersService:MarkersService) {
+  constructor(private markersService:MarkersService, private router: Router) {
     //marker aus service laden
     this.markersService.getMarkersSubject().subscribe(() => {
     this.loadMarkers();
-    })
+    });
  }
 
   ionViewDidEnter(){
@@ -192,7 +194,7 @@ export class Tab1Page {
     
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
     
-    this.addMarkersToMap(this.markers);
+    
     this.map.mapTypes.set("styled_map", styledMapType);
     this.map.setMapTypeId("styled_map");
     this.loadMarkers();
@@ -213,16 +215,28 @@ export class Tab1Page {
     {
       const latLng = new google.maps.LatLng(this.markersService.getMarkers()[i].coordinates[0], this.markersService.getMarkers()[i].coordinates[1]);
         
-      this.markers.push(new google.maps.Marker({
+      let mapMarker = new google.maps.Marker ({
+        position: latLng,
+        title: this.markersService.getMarkers()[i].name,
+        map: this.map,
+        name: this.markersService.getMarkers()[i].name,
+        bagsAvailable: this.markersService.getMarkers()[i].bagsAvailable,
+        bagsClean: this.markersService.getMarkers()[i].bagsClean,
+        availabilityReport: this.markersService.getMarkers()[i].availabilityReport,
+        cleaningReport: this.markersService.getMarkers()[i].cleaningReport,
+        pinId: this.markersService.getMarkers()[i].pinId
+      });
+      /*this.markers.push(new google.maps.Marker({
         position: latLng,
         title: this.markersService.getMarkers()[i].name,
         map: this.map
-      }));
+      }));*/
+      this.addInfoWindow(mapMarker);
     }
   }
 
   //Add Markers To Map
-  addMarkersToMap(markers) {
+  /*addMarkersToMap(markers) {
     for(let marker of markers){
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
       let mapMarker = new google.maps.Marker({
@@ -235,11 +249,43 @@ export class Tab1Page {
       });
 
       mapMarker.setMap(this.map);
+      this.addInfoWindow(mapMarker);
     }
+  }*/
+
+  //Open Window on Click
+  addInfoWindow(marker){
+    let infoWindowContent = '<div id="content">' +
+                            '<h1 id="firstHeading" class="firstHeading">' + marker.name + '</h1>' +
+                            '<p>Bags Available: ' + marker.bagsAvailable + '</p>' +
+                            '<p> Bags Clean: ' + marker.bagsClean + '</p>' +
+                            '<ion-button (click)="goToPin()">Mehr Informationen</ion-button>' +
+                            '</div>';
+
+    let infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent
+    });
+
+   marker.addListener('click', () => {
+      this.closeAllInfoWindows();
+      infoWindow.open(this.map, marker);
+    });
+
+    this.infoWindows.push(infoWindow);            
   }
 
-  
+  // Close all Info windows
+  closeAllInfoWindows(){
+    for(let window of this.infoWindows) {
+      window.close();
+    }
+  }
    
+  //GoToPin
+  goToPin(){
+    console.log("biezqbubnfui");
+    this.router.navigate(['/login'])
+  }
 
   
 }
