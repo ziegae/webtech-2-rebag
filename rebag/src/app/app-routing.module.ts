@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path: 'test',
     loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'reset-availability',
+  loadChildren: () => import('./pin/reset-availability/reset-availability.module').then( m => m.ResetAvailabilityPageModule)
   }
 ];
 @NgModule({

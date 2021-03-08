@@ -6,7 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { OverviewPageRoutingModule } from './overview-routing.module';
 
+
 import { OverviewPage } from './overview.page';
+//import { ModalController } from '@ionic/angular';
 
 @NgModule({
   imports: [
