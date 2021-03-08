@@ -1,4 +1,3 @@
-import { ResetAvailabilityPage } from './../pin/reset-availability/reset-availability.page';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';

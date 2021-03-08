@@ -1,12 +1,14 @@
 import { ResetCleanPage } from './../reset-clean/reset-clean.page';
 import { ResetAvailabilityPage } from './../reset-availability/reset-availability.page';
+import { PushNotificationPage } from './../push-notification/push-notification.page';
 
 import { Component, OnInit } from '@angular/core';
 import { MarkersService } from '../../services/pins.service';
+import { ModalController } from '@ionic/angular';
+
 
 import { ActivatedRoute } from '@angular/router'
 
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-overview',
@@ -77,6 +79,11 @@ export class OverviewPage implements OnInit {
       return await modal.present();
     }
     return;
+  }
+
+  async pushNotModal(){
+    const modal = await this.modalController.create({ component: PushNotificationPage });
+        return await modal.present();
   }
 
   setOverviewPinId() {

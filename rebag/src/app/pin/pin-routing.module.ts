@@ -20,6 +20,10 @@ const routes: Routes = [
       loadChildren: () => import('./reset-clean/reset-clean.module').then( m => m.ResetCleanPageModule)
       }
     ]
+  },
+  {
+    path: 'push-notification',
+    loadChildren: () => import('./push-notification/push-notification.module').then( m => m.PushNotificationPageModule)
   }
 
 ];
