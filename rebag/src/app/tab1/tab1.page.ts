@@ -266,10 +266,10 @@ export class Tab1Page {
   //Open Window on Click
   addInfoWindow(marker){
     let infoWindowContent = '<div id="content">' +
-                            '<h1 id="firstHeading" class="firstHeading">' + marker.name + '</h1>' +
-                            '<p>Bags Available: ' + marker.bagsAvailable + '</p>' +
+                            '<h1>' + marker.name + '</h1>' +
+                            '<p> Bags Available: ' + marker.bagsAvailable + '</p>' +
                             '<p> Bags Clean: ' + marker.bagsClean + '</p>' +
-                            '<ion-button (click)="goToPin()">Mehr Informationen</ion-button>' +
+                            '<ion-button (click)="goToPin()"> Mehr Informationen </ion-button>' +
                             '</div>';
 
     let infoWindow = new google.maps.InfoWindow({
