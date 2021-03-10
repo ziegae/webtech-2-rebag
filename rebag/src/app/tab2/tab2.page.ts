@@ -70,6 +70,9 @@ export class Tab2Page implements OnInit{
     this.availabilityReport = 0;
     this.cleaningReport = 0
     this.imageBase64 = '';
+
+    this.toggle = true;
+    this.isShown = false;
   }
 
   toggleGeo(){
