@@ -28,8 +28,7 @@ export class OverviewPage implements OnInit {
   imgSrcBagsAvailable: any;
   txtBagsAvailable: any;
 
-  test: any = false;
-
+ 
 
   //Marker laden
   constructor(
@@ -60,6 +59,8 @@ export class OverviewPage implements OnInit {
     this.reloadStatus();
   }
 
+
+   
 
   //Verfügbarkeits Stauts zurücksetzen
   async resetAvailabilityModal() {

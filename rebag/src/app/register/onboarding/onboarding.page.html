@@ -4,33 +4,69 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>onboarding</ion-title>
-    
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
 
-  <ion-slides>
+
+  <ion-slides pager>
     <ion-slide>
-       <div class="slide">
-         <img src="../assets/img/annie-spratt-blKQHxuHBgo-unsplash.jpg">
-         <h2>Slide 1</h2>
-         <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
-       </div>
-           </ion-slide>
-     <ion-slide>
-       <img src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
-       <h1>Slide 2</h1>
-     </ion-slide>
-     <ion-slide>
-       <img src="../assets/img/eduardo-santos-QxwPcAv3tcA-unsplash.jpg">
-       <h2>Slide 3</h2>
-     </ion-slide>
-     <ion-slide>
-      <img src="../assets/img/eduardo-santos-QxwPcAv3tcA-unsplash.jpg"/>
-      <h2>Ready to Play?</h2>
-      <ion-button [routerLink]="['/register/input-name']" >/register/input-name</ion-button>
+     
+      <div class="slide-con">
+        <img src="../assets/img/onboarding/Rebag-Happy.jpg">
+      </div>
+      <div class="slider-text">
+        <h3 class="light">Rebag</h3>
+        <p class="light"> Einkaufstasche vergessen?
+          Schnapp dir `ne ReBag!</p>
+      </div>
     </ion-slide>
-   </ion-slides>
+    <ion-slide>
+      <div class="slide-con">
+        <img src="../assets/img/onboarding/Rebag-Planet.jpg">
+      </div>
+      <div class="slider-text">
+        <h3 class="light">Dein Beitrag</h3>
+        <p class="light"> Hole das Maximum aus den Mehrwegtaschen heraus und mache unseren Planeten etwas grüner!</p>
+        <p class="label light" [routerLink]="['']">Intro überspringen</p>
+
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide-con">
+        <img src="../assets/img/onboarding/Rebag-Concept.jpg">
+      </div>
+      <div class="slider-text">
+        <h3 class="light">Ausleihen</h3>
+        <p class="light"> Leihe Taschen aus oder stelle deine zur Verfügung. Du kannst auch deine eigenen ReBag
+          Standorte aufbauen, um deinen Mitmenschen etwas Gutes zu tun.</p>
+          <p class="label light" [routerLink]="['']">Intro überspringen</p>
+
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide-con">
+        <img src="../assets/img/onboarding/Rebag-Concept-2.jpg">
+      </div>
+      <div class="slider-text">
+        <h3 class="light">Instandhaltung</h3>
+        <p class="light"> Scanne die QR-Codes, um den Status des Standortes aktuell zu halten.</p>
+        <p class="label light" [routerLink]="['']">Intro überspringen</p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide-con">
+        <img src="../assets/img/onboarding/Rebag-Washing.jpg">
+      </div>
+      <div class="slider-text">
+        <h3 class="light">Hygiene</h3>
+        <p class="light">Wasche dreckige Taschen und sorge dafür, das an den Standorten alles rund läuft. HYGIENE wird
+          bei uns groß geschrieben.</p>
+        <ion-button [routerLink]="['']">Jetzt loslegen</ion-button>
+      </div>
+
+    </ion-slide>
+  </ion-slides>
 </ion-content>

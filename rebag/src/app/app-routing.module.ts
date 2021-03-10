@@ -28,25 +28,22 @@ const routes: Routes = [
     loadChildren: () => import('./pin/pin.module').then(m => m.PinPageModule)
   },
   {
-    path: '',
-    redirectTo: '/start-page',
-    pathMatch: 'full'
-  },
-  {
     path: 'new-pin',
     loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
   },
-  {
-    path: 'add-image',
-    loadChildren: () => import('./add-image/add-image.module').then(m => m.AddImagePageModule)
-  },
+
   {
     path: 'test',
     loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
   },
   {
-    path: 'reset-availability',
-  loadChildren: () => import('./pin/reset-availability/reset-availability.module').then( m => m.ResetAvailabilityPageModule)
+    path: 'onboarding',
+    loadChildren: () =>import('./register/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/start-page',
+    pathMatch: 'full'
   }
 ];
 @NgModule({
