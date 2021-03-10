@@ -7,17 +7,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<h4>Warum dein Standort erforderlich ist</h4>
-<p>Um die App im Sinne der Entwickler zu nutzen, muss auf deinen Standort zugegriffen werden können. Ohne diesen Zugriff sind manche Funktionen, die ausschlag- gebend für die App sind, nicht möglich.<br>
-<br>Du selbst kannst allerdings festlegen, wann die App auf deinen Standort zugreifen darf.</p><br><br>
-<ion-item>
-  <h4 class="no-margin" >Standortzugriff immer erlauben</h4>
-  <ion-toggle slot="end" [(ngModel)]="toggleLocation"></ion-toggle>
-</ion-item>
 
-<ion-item>
-  <h4 class="no-margin">Nur bei der Nutzung erlauben</h4>
-  <ion-toggle slot="end" [(ngModel)]="toggleLocation2"></ion-toggle>
-</ion-item>
+<ion-content>
+
+  <!--Headline und Text-->
+  <h4>Warum dein Standort erforderlich ist</h4>
+  <p>Um die App im Sinne der Entwickler zu nutzen, muss auf deinen Standort zugegriffen werden können. Ohne diesen
+    Zugriff sind manche Funktionen, die ausschlag- gebend für die App sind, nicht möglich.<br>
+    <br>Du selbst kannst allerdings festlegen, wann die App auf deinen Standort zugreifen darf.
+  </p>
+
+  <br><br>
+
+  <!--Toggle für Standort EInstellungen-->
+  <ion-item>
+    <h4 class="no-margin">Standortzugriff immer erlauben</h4>
+    <ion-toggle slot="end" [(ngModel)]="toggleLocation"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <h4 class="no-margin">Nur bei der Nutzung erlauben</h4>
+    <ion-toggle slot="end" [(ngModel)]="toggleLocation2"></ion-toggle>
+  </ion-item>
+
 </ion-content>

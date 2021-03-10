@@ -3,44 +3,71 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <!--Pin Name laden-->
     <ion-title>{{loadedPin.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
 
+  <!--Image laden-->
   <div class="img-container">
     <img class="ion-no-padding ion-no-margin img-overview"
       src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
   </div>
+
+  <!--Pin Name-->
   <ion-text>
     <h1>{{loadedPin.name}}</h1>
   </ion-text>
 
+  <!--Pin Standort-->
   <ion-text>
     <p>{{loadedPin.coordinates}}</p>
   </ion-text>
 
+  <!--Headline-->
   <ion-text>
     <h4>Status</h4>
   </ion-text>
 
-    <ion-item class="" (click)="resetAvailabilityModal(); setOverviewPinId()">
-      <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsAvailable}}">
-      <ion-icon *ngIf="!loadedPin.bagsAvailable" slot="end" name="chevron-forward-outline"></ion-icon>
-      <ion-text>
-        {{txtBagsAvailable}}
-      </ion-text>
-    </ion-item>
-    <ion-item (click)="resetCleanModal(); setOverviewPinId()">
-      <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsClean}}">
-      <ion-icon *ngIf="!loadedPin.bagsClean" slot="end" name="chevron-forward-outline"></ion-icon>
-      <ion-text>
-        {{txtBagsClean}}
-      </ion-text>
-    </ion-item>
- 
+  <!--Status Verfügbarkeit-->
+  <ion-item class="" (click)="resetAvailabilityModal(); setOverviewPinId()">
 
+    <!--Pin Status Image-->
+    <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsAvailable}}">
+
+    <!--Pfeil nach rechts-->
+    <ion-icon *ngIf="!loadedPin.bagsAvailable" slot="end" name="chevron-forward-outline"></ion-icon>
+
+    <!--Pin Status laden-->
+    <ion-text>
+      {{txtBagsAvailable}}
+    </ion-text>
+
+  </ion-item>
+
+
+  <!--Status Sauberkeit-->
+  <ion-item (click)="resetCleanModal(); setOverviewPinId()">
+
+    <!--Pin Status Image-->
+    <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsClean}}">
+
+    <!--Pfeil nach rechts-->
+    <ion-icon *ngIf="!loadedPin.bagsClean" slot="end" name="chevron-forward-outline"></ion-icon>
+
+    <!--Pin Status laden-->
+    <ion-text>
+      {{txtBagsClean}}
+    </ion-text>
+
+  </ion-item>
+
+
+  <!--Probleme Abschnitt-->
   <ion-text>
     <h4>Probleme</h4>
     <ion-item>Problem melden</ion-item>
