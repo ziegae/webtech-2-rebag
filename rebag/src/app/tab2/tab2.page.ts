@@ -14,15 +14,19 @@ export class Tab2Page implements OnInit{
 
   pinId:string ='';
   name:string = '';
-  bagsAvailable:boolean;
-  bagsClean:boolean;
+  bagsAvailable:boolean = true;
+  bagsClean:boolean = true;
   latitude:number = 0;
   longitude:number = 0;
   availabilityReport:number = 0;
   cleaningReport:number = 0;
   imageBase64:any = null;
+  toggle:boolean = true;
+  isShown = false;
 
-  constructor(private markersService:MarkersService, public modalController:ModalController) {}
+  constructor(private markersService:MarkersService, public modalController:ModalController) {
+    
+  }
 
   ngOnInit() {}
 
@@ -59,13 +63,19 @@ export class Tab2Page implements OnInit{
     this.markersService.add(marker);
     this.pinId = '';
     this.name = '';
-    this.bagsAvailable = false;
-    this.bagsClean = false;
+    this.bagsAvailable = true;
+    this.bagsClean = true;
     this.latitude = 0;
     this.longitude = 0;
     this.availabilityReport = 0;
     this.cleaningReport = 0
     this.imageBase64 = '';
+
+    this.toggle = true;
+    this.isShown = false;
   }
 
+  toggleGeo(){
+    this.isShown = !this.isShown;
+  }
 }

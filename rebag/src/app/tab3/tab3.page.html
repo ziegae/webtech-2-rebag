@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Hey Miriam!</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button [routerLink]="['/settings']">
         <ion-icon slot="icon-only" name="cog" >
         </ion-icon>
       </ion-button>
@@ -21,6 +21,17 @@
        <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
             {{marker.name}}
     </ion-item>
+  <ion-item-sliding *ngFor="let marker of markers">
+      <ion-item [routerLink]="['/pin', marker.pinId]">
+       
+        <img class="img-list-view"
+      src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+       
+        <ion-text>
+          <h4 class="no-margin">{{marker.name}}</h4>
+        </ion-text>
+      </ion-item>
+    </ion-item-sliding>
 
   
 </ion-content>
