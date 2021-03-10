@@ -1,4 +1,3 @@
-import { ResetAvailabilityPage } from './../pin/reset-availability/reset-availability.page';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
@@ -60,40 +59,20 @@ export class MarkersService {
     return this.overviewPinId;
   }
 
-  resetClean(loadedPin: any) {
-    const found = this.markers.findIndex(pin => pin.pinId = loadedPin.pinId);
-    
-    loadedPin.bagsClean = "true";
-    this.markers[found]= loadedPin;
-    console.log(JSON.stringify("service gibt aus" + JSON.stringify(this.markers[found])));
+  resetAvailability(loadedPin: any){
+      loadedPin.bagsAvailable = "true";
+       this.markers[loadedPin.pinId-1]=loadedPin;
+       console.log("service gibt aus" + JSON.stringify(this.markers));
+
   }
 
-  resetAvailability(loadedPin: any){
-    const found = this.markers.findIndex(pin => pin.pinId = loadedPin.pinId);
-       loadedPin.bagsAvailable = "true";
-       this.markers[found]=loadedPin;
-       console.log(JSON.stringify("service gibt aus" + JSON.stringify(this.markers[found])));
+  resetClean(loadedPin: any) { 
+    loadedPin.bagsClean = "true";
+   this.markers[loadedPin.pinId-1]= loadedPin
+    console.log("service gibt aus" + JSON.stringify(this.markers));
   }
+
  
-  /*
-    delete(pin)
-    {
-      this.pins.splice(this.pins.indexOf(pin), 1);
-      this.pinsSubject.next();
-      localStorage.setItem('pins', JSON.stringify(this.pins));
-    }
-  */
-  /*reset()
-   {
-     return new Promise((resolve, reject) => {
-       localStorage.clear();
-       this.http.get('assets/pin-data.json').subscribe((data) => {
-         this.pins = data;
-         resolve();
-       });
-       // wenn es nicht klappen sollte reject();
-     })
-     
-     //location.reload();
-   }*/
+ 
+
 }

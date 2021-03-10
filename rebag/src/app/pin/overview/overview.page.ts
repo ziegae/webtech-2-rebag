@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MarkersService } from '../../services/pins.service';
 import { ActivatedRoute } from '@angular/router'
 import { ModalController } from '@ionic/angular';
+import { PushNotificationPage } from './../push-notification/push-notification.page';
 
 
 @Component({
@@ -86,7 +87,14 @@ export class OverviewPage implements OnInit {
   }
 
 
-  //Marker laden
+  //Create Push-Notification Page
+  async pushNotModal(){
+    const modal = await this.modalController.create({ component: PushNotificationPage });
+        return await modal.present();
+  }
+
+
+  //Set Pin ID
   setOverviewPinId() {
     this.markersService.setOverviewPinId(this.loadedPin);
   }
