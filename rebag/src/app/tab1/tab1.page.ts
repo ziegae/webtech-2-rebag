@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { ViewChild, ElementRef, NgZone } from '@angular/core';
-import { Plugins, CameraResultType } from '@capacitor/core';
+import { ViewChild, ElementRef} from '@angular/core';
+import { Plugins} from '@capacitor/core';
 //pins als Markers bezeichnet, weil es ansonsten zu problemen gekommen ist
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
-import { styledMap } from '../mapStyle';
-import { TestBed } from '@angular/core/testing';
-import { OverviewPage } from '../pin/overview/overview.page'
 import { Router } from '@angular/router';
 
 declare var google: any;
@@ -16,31 +13,36 @@ declare var google: any;
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
+
+
 export class Tab1Page {
 
   map: any;
-  latitude: number = 52.26794242552926;
-  longitude: number = 7.79301833329877;
+  latitude: number = 0;
+  longitude: number = 0;
+
 
   @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
 
   infoWindows: any = [];
-
-  //pins als markers bezeichnet, weil es ansonsten zu problemen gekommen ist
   markers: any = [];
 
-  constructor(private markersService:MarkersService, private router: Router) {
-    //marker aus service laden
+
+  //Marker laden
+  constructor(private markersService: MarkersService, private router: Router) {
     this.markersService.getMarkersSubject().subscribe(() => {
-    this.loadMarkers();
+      this.loadMarkers();
     });
- }
- 
+  }
+
+
+  //Console log
   ngOnInit() {
     console.log("map screen initialisiert");
   }
 
 
+  //Aktuelle Position finden und Map laden
   ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
@@ -52,12 +54,13 @@ export class Tab1Page {
   }
 
 
-  ionViewDidEnter() {
-   
-  }
+  ionViewDidEnter() {}
+
 
   //Generate Map
   showMap() {
+
+    //Map Style laden
     const styledMapType = new google.maps.StyledMapType([
       {
         "featureType": "administrative.land_parcel",
@@ -191,12 +194,14 @@ export class Tab1Page {
       { name: "Styled Map" }
     );
 
+    //Map Position und EIgenschaften festlegen
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       this.map.setCenter(latLng);
       this.map.setZoom(18);
     });
 
+    //Map Style festlegen
     const options = {
       disableDefaultUI: true,
       mapTypeControlOptions: {
@@ -204,17 +209,20 @@ export class Tab1Page {
       },
     }
 
-
+    //Map erstellen
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    
-    
+
+    //Map Sytle und Marker aufrufen
     this.map.mapTypes.set("styled_map", styledMapType);
     this.map.setMapTypeId("styled_map");
     this.loadMarkers();
   }
 
+
   //Load Markers from JSON
   loadMarkers() {
+
+    //Array durchlaufen
     for (let i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
@@ -222,10 +230,12 @@ export class Tab1Page {
     this.markers.length = 0;
 
 
+    //JSON durchlaufen
     for (let i = 0; i < this.markersService.getMarkers().length; i++) {
       const latLng = new google.maps.LatLng(this.markersService.getMarkers()[i].coordinates[0], this.markersService.getMarkers()[i].coordinates[1]);
-        
-      let mapMarker = new google.maps.Marker ({
+
+      //Marker Details aus JSON laden
+      let mapMarker = new google.maps.Marker({
         position: latLng,
         title: this.markersService.getMarkers()[i].name,
         map: this.map,
@@ -237,17 +247,20 @@ export class Tab1Page {
         pinId: this.markersService.getMarkers()[i].pinId
       });
 
-      //Alternative Marker
+      //Marker auf Map darstellen
+      this.addInfoWindow(mapMarker);
+
+
+      //Verworfener Marker
       /*this.markers.push(new google.maps.Marker({
         position: latLng,
         title: this.markersService.getMarkers()[i].name,
         map: this.map
       }));*/
-      this.addInfoWindow(mapMarker);
     }
   }
 
-  //Add Markers To Map
+  //Add Markers To Map - VERWORFEN
   /*addMarkersToMap(markers) {
     for(let marker of markers){
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
@@ -266,43 +279,42 @@ export class Tab1Page {
   }*/
 
   //Open Window on Click
-  addInfoWindow(marker){
-    // Info Window
-   /* let infoWindowContent = '<div id="content">' +
-                            '<h1>' + marker.name + '</h1>' +
-                            '<p> Bags Available: ' + marker.bagsAvailable + '</p>' +
-                            '<p> Bags Clean: ' + marker.bagsClean + '</p>' +
-                            '<ion-button (click)="goToPin()"> Mehr Informationen </ion-button>' +
-                            '</div>';
+  addInfoWindow(marker) {
 
-    let infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
-    });*/
+    // Info Window Aussehen
+    /* let infoWindowContent = '<div id="content">' +
+                             '<h1>' + marker.name + '</h1>' +
+                             '<p> Bags Available: ' + marker.bagsAvailable + '</p>' +
+                             '<p> Bags Clean: ' + marker.bagsClean + '</p>' +
+                             '<ion-button (click)="goToPin()"> Mehr Informationen </ion-button>' +
+                             '</div>';
+ 
+    //Info Window erstellen
+     let infoWindow = new google.maps.InfoWindow({
+       content: infoWindowContent
+     });*/
 
-   marker.addListener('click', () => {
-     // call Info Window
-     // this.closeAllInfoWindows();
-     // infoWindow.open(this.map, marker);
-     this.router.navigate(['/pin', marker.pinId])
+    marker.addListener('click', () => {
+      // call Info Window
+      // this.closeAllInfoWindows();
+      // infoWindow.open(this.map, marker);
+      this.router.navigate(['/pin', marker.pinId])
     });
 
     //this.infoWindows.push(infoWindow);            
   }
 
-  // Close all Info windows
-  closeAllInfoWindows(){
-    for(let window of this.infoWindows) {
+  // Close all Info windows - VERWORFEN
+  /*closeAllInfoWindows() {
+    for (let window of this.infoWindows) {
       window.close();
     }
-  }
-   
-  //GoToPin
+  }*/
+
+
+  //GoToPin - VERWORFEN
   /*goToPin(){
     console.log("biezqbubnfui");
     this.router.navigate(['/login'])
   }*/
-
-
-
-
 }

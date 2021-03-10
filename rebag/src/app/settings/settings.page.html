@@ -7,31 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+  <!--Headline-->
   <ion-text>
     <h4>Nutzername</h4>
   </ion-text>
 
+  <!--Text-->
   <ion-text>
     <p>Miriam</p>
   </ion-text>
 
   <br>
 
+  <!--Headline-->
   <ion-text>
     <h4>E-Mail</h4>
   </ion-text>
 
+  <!--Text-->
   <ion-text>
     <p>miriam@beispiel.de</p>
   </ion-text>
 
   <br>
 
+  <!--Headline-->
   <ion-text>
     <h4>Einstellungen</h4>
   </ion-text>
 
+  <!--Verweise auf die Subpages-->
   <ion-item [routerLink]="['change-profile']">
     <ion-text>
       <p>Profildaten ändern</p>
@@ -52,11 +60,13 @@
 
   <br>
 
+  <!--Headline-->
   <ion-text>
     <h4>Weitere Einstellungen</h4>
   </ion-text>
-  
 
+
+  <!--Weitere Verweise auf die Subpages-->
   <ion-item [routerLink]="['privacy']">
     <ion-text>
       <p>Über die App</p>
@@ -74,4 +84,5 @@
       <p style="color: red">Ausloggen</p>
     </ion-text>
   </ion-item>
+
 </ion-content>

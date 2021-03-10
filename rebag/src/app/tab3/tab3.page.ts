@@ -14,7 +14,7 @@ export class Tab3Page {
     this.markers = this.markersService.getMarkers();
     this.markersService.getMarkersSubject().subscribe(() => {
       this.markers = this.markersService.getMarkers();
-    })
+    });
     console.log("marker werden geladen");
   }
 

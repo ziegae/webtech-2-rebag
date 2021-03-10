@@ -10,27 +10,28 @@ const { Geolocation } = Plugins;
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit{
+export class Tab2Page implements OnInit {
 
-  pinId:string ='';
-  name:string = '';
-  bagsAvailable:boolean = true;
-  bagsClean:boolean = true;
-  latitude:number = 0;
-  longitude:number = 0;
-  availabilityReport:number = 0;
-  cleaningReport:number = 0;
-  imageBase64:any = null;
-  toggle:boolean = true;
+  pinId: string = '';
+  name: string = '';
+  bagsAvailable: boolean = true;
+  bagsClean: boolean = true;
+  latitude: number = 0;
+  longitude: number = 0;
+  availabilityReport: number = 0;
+  cleaningReport: number = 0;
+  imageBase64: any = null;
+  toggle: boolean = true;
   isShown = false;
 
-  constructor(private markersService:MarkersService, public modalController:ModalController) {
-    
+  constructor(private markersService: MarkersService, public modalController: ModalController) {
+
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  ionViewDidEnter(){
+  //Koordinaten des aktuellen Standorts laden
+  ionViewDidEnter() {
     this.latitude = 0.0;
     this.longitude = 0.0;
 
@@ -40,20 +41,22 @@ export class Tab2Page implements OnInit{
     });
   }
 
-  async takePhoto(){
+  //Foto für den Standort aufnehmen
+  async takePhoto() {
     const image = await Camera.getPhoto({
       quality: 20,
       allowEditing: true,
       resultType: CameraResultType.Base64
     });
-    this.imageBase64 = 'data:image/'+image.format+';base64,'+image.base64String;
+    this.imageBase64 = 'data:image/' + image.format + ';base64,' + image.base64String;
   }
 
-  save(){
+  //Standort speichern
+  save() {
     const marker = {
       'pinId': this.pinId,
       'name': this.name,
-      'basAvailable':this.bagsAvailable,
+      'basAvailable': this.bagsAvailable,
       'bagsClean': this.bagsClean,
       'coordinates': [this.latitude, this.longitude],
       'availabilityReport': this.availabilityReport,
@@ -75,7 +78,8 @@ export class Tab2Page implements OnInit{
     this.isShown = false;
   }
 
-  toggleGeo(){
+  //Ansicht der Koordinaten togglen
+  toggleGeo() {
     this.isShown = !this.isShown;
   }
 }

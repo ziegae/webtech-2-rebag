@@ -3,17 +3,18 @@
     <ion-title>Hey Miriam!</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/settings']">
-        <ion-icon slot="icon-only" name="cog" >
+        <ion-icon slot="icon-only" name="cog">
         </ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-
 </ion-header>
+
 
 
 <ion-content [fullscreen]="true">
 
+  <!--Display Marker and Marker Status-->
   <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
       <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood" ></div>
       <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable" ></div>
@@ -21,18 +22,24 @@
        <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
             {{marker.name}}
     </ion-item>
+
+    
+
   <ion-item-sliding *ngFor="let marker of markers">
-      <ion-item [routerLink]="['/pin', marker.pinId]">
-       
-        <img class="img-list-view"
-      src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
-       
-        <ion-text>
-          <h4 class="no-margin">{{marker.name}}</h4>
-        </ion-text>
-      </ion-item>
-    </ion-item-sliding>
 
-  
+    <!--Auf Pin verweisen-->
+    <ion-item [routerLink]="['/pin', marker.pinId]">
+
+      <!--Bild für Listen-->
+      <img class="img-list-view" src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+
+      <!--Name abrufen-->
+      <ion-text>
+        <h4 class="no-margin">{{marker.name}}</h4>
+      </ion-text>
+
+    </ion-item>
+  </ion-item-sliding>
+
+
 </ion-content>
-
