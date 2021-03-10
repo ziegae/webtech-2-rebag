@@ -163,4 +163,34 @@ p {
     margin-right:12px;
   }
 
-  
+  .img-list-view {
+    border-radius: 3%;
+    height: 40px;
+    width: 60px;
+    margin-right:12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .no-margin{
+    margin: 0 !important;
+  }
+
+  .no-border{
+    margin-top: 10px;
+    border: 0px !important;
+    --border-style: none !important;
+    margin-bottom: 25px;
+  }
+
+  .rebag-button{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 75% !important;
+    font-size: 14px !important;
+    height: 30px !important;
+  }
+
+  .align-mid{
+    padding-top: 30%;
+  }

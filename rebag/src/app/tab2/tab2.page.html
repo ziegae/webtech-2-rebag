@@ -3,7 +3,7 @@
     <ion-title>Hey Miriam!</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/settings']">
-        <ion-icon class="top-icon" slot="icon-only" name="cog" >
+        <ion-icon slot="icon-only" name="cog" >
 
         </ion-icon>
       </ion-button>
@@ -13,62 +13,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
+
+ 
+  <ion-item class="no-border">
+    <h4 class="no-margin">Aktuellen Standort verwenden</h4>
+    <ion-toggle slot="end" [(ngModel)]="toggle" (click)="toggleGeo()"></ion-toggle>
+  </ion-item>
+
+  <ion-list class="align-mid">
+      <h4>Name des Standortes</h4>
     <ion-item>
-      <ion-label>
-        Name
-      </ion-label>
-      <ion-input [(ngModel)]="name"></ion-input>
+      <ion-input [(ngModel)]="name" placeholder="Name.."></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label>
-        Latitude
-      </ion-label>
-      <ion-input [(ngModel)]="latitude"></ion-input>
+    <br *ngIf="isShown">
+
+    <h4 *ngIf="isShown">Bearbeite deine Koordinaten</h4>
+    <ion-item *ngIf="isShown">
+      <ion-input [(ngModel)]="latitude" placeholder="Latitude.."></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label>
-        Longitude
-      </ion-label>
-      <ion-input [(ngModel)]="longitude"></ion-input>
+    <ion-item *ngIf="isShown">
+      <ion-input [(ngModel)]="longitude" placeholder="Longitude.."></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label>
-        Bags Available
-      </ion-label>
-      <ion-input [(ngModel)]="bagsAvailable"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        Bags Clean
-      </ion-label>
-      <ion-input [(ngModel)]="bagsClean"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        Availablility Report
-      </ion-label>
-      <ion-input [(ngModel)]="availabilityReport"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>
-        Cleaning Report
-      </ion-label>
-      <ion-input [(ngModel)]="cleaningReport"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-button (click)="takePhoto()">Foto aufnehmen</ion-button>
-    </ion-item>
-
-    <ion-item>
-      <ion-button (click)="save()">Speichern</ion-button>
+    <ion-item class="no-border">
+      <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
   </ion-list>
 

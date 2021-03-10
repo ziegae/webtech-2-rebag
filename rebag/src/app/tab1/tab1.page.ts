@@ -236,6 +236,8 @@ export class Tab1Page {
         cleaningReport: this.markersService.getMarkers()[i].cleaningReport,
         pinId: this.markersService.getMarkers()[i].pinId
       });
+
+      //Alternative Marker
       /*this.markers.push(new google.maps.Marker({
         position: latLng,
         title: this.markersService.getMarkers()[i].name,
@@ -265,7 +267,8 @@ export class Tab1Page {
 
   //Open Window on Click
   addInfoWindow(marker){
-    let infoWindowContent = '<div id="content">' +
+    // Info Window
+   /* let infoWindowContent = '<div id="content">' +
                             '<h1>' + marker.name + '</h1>' +
                             '<p> Bags Available: ' + marker.bagsAvailable + '</p>' +
                             '<p> Bags Clean: ' + marker.bagsClean + '</p>' +
@@ -274,14 +277,16 @@ export class Tab1Page {
 
     let infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent
-    });
+    });*/
 
    marker.addListener('click', () => {
-      this.closeAllInfoWindows();
-      infoWindow.open(this.map, marker);
+     // call Info Window
+     // this.closeAllInfoWindows();
+     // infoWindow.open(this.map, marker);
+     this.router.navigate(['/pin', marker.pinId])
     });
 
-    this.infoWindows.push(infoWindow);            
+    //this.infoWindows.push(infoWindow);            
   }
 
   // Close all Info windows
@@ -292,10 +297,10 @@ export class Tab1Page {
   }
    
   //GoToPin
-  goToPin(){
+  /*goToPin(){
     console.log("biezqbubnfui");
     this.router.navigate(['/login'])
-  }
+  }*/
 
 
 

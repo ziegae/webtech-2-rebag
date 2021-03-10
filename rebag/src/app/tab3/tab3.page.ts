@@ -11,10 +11,11 @@ export class Tab3Page {
 
   constructor(private markersService: MarkersService) {
     //marker aus service laden
+    this.markers = this.markersService.getMarkers();
     this.markersService.getMarkersSubject().subscribe(() => {
       this.markers = this.markersService.getMarkers();
     })
-console.log("marker werden geladen");
+    console.log("marker werden geladen");
   }
 
 }
