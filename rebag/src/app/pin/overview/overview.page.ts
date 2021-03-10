@@ -21,7 +21,7 @@ export class OverviewPage implements OnInit {
 
   routerLink: string;
   bagsClean: string;
-  pinId: string;
+  pinId: any;
 
   imgSrcBagsClean: any;
   txtBagsClean: any;
