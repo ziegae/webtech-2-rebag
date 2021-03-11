@@ -3,11 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
       </ion-buttons>
-    <ion-title>reset-availability</ion-title>
+    <ion-title>Es fehlen Taschen?</ion-title>
+    <ion-icon (click)="dismiss()" slot="end" name="close-outline"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="resetAvailability()">resetAvailability</ion-button>
-  <ion-button (click)="dismiss()"> Dismiss</ion-button>
+  <p>Klicke unten, um anzuzeigen, dass wieder Taschen vorhanden sind! </p>
+  <img class="center" src="../assets/img/pinstatus/bagsAvailable@2x.png">
+  <ion-button (click)="resetAvailability()">Taschen jetzt vorhanden</ion-button>
 </ion-content>

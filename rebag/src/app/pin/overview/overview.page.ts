@@ -15,22 +15,25 @@ import { PushNotificationPage } from './../push-notification/push-notification.p
 
 
 export class OverviewPage implements OnInit {
+ 
   markers: any = [];
   loadedPin: any;
-
-  routerLink: string;
   bagsClean: string;
-  pinId: any;
-
+ 
   imgSrcBagsClean: any;
   txtBagsClean: any;
 
   imgSrcBagsAvailable: any;
   txtBagsAvailable: any;
 
- 
-
-  //Marker laden
+  
+  /**
+   * Marker laden
+   * @param markersService lädt die gespeicherten Pins
+   * @param activatedRoute gibt die aktivierte Route zurück
+   * @param modalController wird benötigt um ResetCleanPage und ResetCleanAvailability aufzurufen
+   */
+  
   constructor(
     private markersService: MarkersService,
     private activatedRoute: ActivatedRoute,
@@ -48,10 +51,9 @@ export class OverviewPage implements OnInit {
         //redirect
         return;
       }
-      this.pinId = paramMap.get('pinId');
-      this.loadedPin = this.markersService.getPinId(this.pinId);
+      const  pinId = paramMap.get('pinId');
+      this.loadedPin = this.markersService.getPinId(pinId);
     });
-    this.bagsClean = this.loadedPin.bagsClean;
     this.reloadStatus();
   }
 
