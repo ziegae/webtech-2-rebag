@@ -1,15 +1,24 @@
-<ion-header>
+<!--<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>startPage</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-  
-</ion-header>
+</ion-header>-->
 
 <ion-content>
-  <ion-button [routerLink]="['/register/onboarding']" >registrieren</ion-button>
-  <ion-button [routerLink]="['/test']" >test</ion-button>
-    <ion-button [routerLink]="['/tabs/tab1']" >tab1</ion-button>
-    <ion-button [routerLink]="['/tabs/tab3']" >tab3</ion-button>
+    <div class="start-text">
+      <h1>Willkommen bei ReBag!</h1>
+      <p>Mit ReBag vergisst du nie wieder eine Mehrwegtasche zum Einkaufen. Egal ob mit oder ohne App.</p>
+    </div>
 
+    <div class="buttons">
+    <ion-button expand="block" class="login-btn" routerLink="/login">
+      Login
+    </ion-button>
 
+    <ion-button fill="outline" expand="block" class="signup-btn" routerLink="/register">
+      Sign Up
+    </ion-button>
+    </div>
 </ion-content>

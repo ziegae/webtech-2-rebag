@@ -1,0 +1,38 @@
+ion-header{
+    position: absolute;
+}
+
+ion-toolbar {
+    --ion-background-color: transparent;
+    --opacity: 0;
+}
+
+ion-content {
+    --ion-background-color: #f2f2f2;
+}
+
+ion-icon {
+    font-size: 20px !important;
+    margin-right: 10px !important;
+}
+
+.headline {
+    text-align: center;
+    color: #333333;
+    padding-top: 50px;
+    overflow: hidden;
+    margin: 0 20px 0 20px;
+}
+
+.headline p {
+    color: rgba($color: #333333, $alpha: 0.6);
+    margin-top: -3px;
+}
+
+.inputs {
+    margin: 100px 20px 0 10px;
+}
+
+ion-back-button {
+    --color: #57B660;
+}

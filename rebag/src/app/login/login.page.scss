@@ -1,0 +1,71 @@
+ion-header{
+    position: absolute;
+}
+
+ion-toolbar {
+    --ion-background-color: transparent;
+    --opacity: 0;
+}
+
+ion-content {
+    --ion-background-color: #f2f2f2;
+}
+
+ion-icon {
+    font-size: 20px !important;
+    margin-right: 10px !important;
+}
+
+.forgot {
+    text-align: right;
+    --ion-color-primary: #57B660;
+}
+
+.forgot ion-button {
+    --color-hover: #3C9644;
+}
+
+.inputs {
+    margin-top: 200px;
+}
+
+.inputs h1 {
+    text-align: center;
+}
+
+.login-button ion-button {
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    --ion-color-primary: #57B660;
+    padding: 0 10px 0 10px;
+    color: #f2f2f2;
+    --color-hover: #f2f2f2;
+    --background-hover: #3C9644;
+}
+
+.no-acc-btn{
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    right: 0;
+    display: inline;
+    font-size: 14px;
+    text-align: center;
+}
+
+.no-acc-btn a{
+    color: #57B660;
+    text-decoration: none;
+}
+
+ion-back-button {
+    --color: #57B660;
+}
+
+.error-message{
+    color: red;
+    font-size: 10px;
+    margin-left: 20px;
+}

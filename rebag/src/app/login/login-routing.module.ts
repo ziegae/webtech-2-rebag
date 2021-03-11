@@ -9,16 +9,8 @@ const routes: Routes = [
     component: LoginPage
   },
   {
-    path: 'validation',
-    loadChildren: () => import('./validation/validation.module').then( m => m.ValidationPageModule)
-  },
-  {
-    path: 'confirmation',
-    loadChildren: () => import('./confirmation/confirmation.module').then( m => m.ConfirmationPageModule)
-  },
-  {
-    path: 'input',
-    loadChildren: () => import('./input/input.module').then( m => m.InputPageModule)
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   }
 ];
 

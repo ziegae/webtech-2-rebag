@@ -27,13 +27,7 @@ export class OverviewPage implements OnInit {
   txtBagsAvailable: any;
 
   
-  /**
-   * Marker laden
-   * @param markersService lädt die gespeicherten Pins
-   * @param activatedRoute gibt die aktivierte Route zurück
-   * @param modalController wird benötigt um ResetCleanPage und ResetCleanAvailability aufzurufen
-   */
-  
+ 
   constructor(
     private markersService: MarkersService,
     private activatedRoute: ActivatedRoute,

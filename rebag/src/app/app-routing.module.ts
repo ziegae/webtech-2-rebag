@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from 'src/app/guards/auth.guard'
 
 const routes: Routes = [
 
@@ -23,22 +24,18 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
-  {
-    path: 'pin',
-    loadChildren: () => import('./pin/pin.module').then(m => m.PinPageModule)
-  },
+
   {
     path: 'new-pin',
     loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
   },
-
-  {
-    path: 'test',
-    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
-  },
   {
     path: 'onboarding',
     loadChildren: () =>import('./register/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+  },
+  {
+    path: 'pin',
+    loadChildren: () =>import('./pin/pin.module').then( m => m.PinPageModule)
   },
   {
     path: '',

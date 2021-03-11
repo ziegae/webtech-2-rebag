@@ -1,0 +1,79 @@
+ion-header{
+    position: absolute;
+}
+
+ion-toolbar {
+    --ion-background-color: transparent;
+    --opacity: 0;
+}
+
+ion-content {
+    --ion-background-color: #f2f2f2;
+}
+
+ion-icon {
+    font-size: 20px !important;
+    margin-right: 10px !important;
+}
+
+.headline {
+    text-align: center;
+    color: #333333;
+    padding-top: 50px;
+    overflow: hidden;
+    margin: 0 20px 0 20px;
+}
+
+.headline p {
+    color: rgba($color: #333333, $alpha: 0.6);
+    margin-top: -3px;
+}
+
+.inputs {
+    margin: 100px 20px 0 10px;
+}
+
+.next-btn ion-button {
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    --ion-color-primary: #57B660;
+    padding: 0 70px 0 70px;
+    color: #f2f2f2;
+    --color-hover: #f2f2f2;
+    --background-hover: #3C9644;
+    --background-activated: #57B660;
+}
+
+.resend-btn ion-button {
+    position: fixed;
+    left: 0;
+    right: 0;
+    --ion-color-primary: #57B660;
+    padding: 0 70px 0 70px;
+    color: #f2f2f2;
+    --color-hover: #f2f2f2;
+    --background-hover: #3C9644;
+    --background-activated: #57B660;
+    margin-top: 80px;
+}
+
+.notification {
+    margin: 130px 20px 0 20px;
+    text-align: center;
+}
+
+.notification h3 {
+    color: #57B660;
+}
+
+.notification p {
+    color: rgba($color: #333333, $alpha: 0.6); 
+    margin-top: -5px;
+}
+
+
+ion-back-button {
+    --color: #57B660;
+}

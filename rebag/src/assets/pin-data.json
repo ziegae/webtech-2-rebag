@@ -1,7 +1,7 @@
 [
     {
         "pinId": "1",
-        "name": "Bigtax",
+        "name": "///schauspielern.annähern.gelöst",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -9,11 +9,11 @@
             7.79301833329877
         ],
         "availabilityReport": "3",
-        "cleaningReport": "0",
+        "cleaningReport": "0"
     },
     {
         "pinId": "2",
-        "name": "Namfix",
+        "name": "///ausreise.ominös.brunnen",
         "bagsAvailable": false,
         "bagsClean": true,
         "coordinates": [
@@ -25,7 +25,7 @@
     },
     {
         "pinId": "3",
-        "name": "Quo Lux",
+        "name": "///ruhe.küchen.getestet",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -49,7 +49,7 @@
     },
     {
         "pinId": "5",
-        "name": "Y-Solowarm",
+        "name": "///entlang.wische.erkannte",
         "bagsAvailable": true,
         "bagsClean": true,
         "coordinates": [
@@ -61,7 +61,7 @@
     },
     {
         "pinId": "6",
-        "name": "Fixflex",
+        "name": "///gelaufen.flachem.ihren",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -73,7 +73,7 @@
     },
     {
         "pinId": "7",
-        "name": "Vagram",
+        "name": "///verpassen.irgendein.sprecher",
         "bagsAvailable": false,
         "bagsClean": false,
         "coordinates": [
@@ -85,7 +85,7 @@
     },
     {
         "pinId": "8",
-        "name": "Matsoft",
+        "name": "///wobei.gegend.genug",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -97,7 +97,7 @@
     },
     {
         "pinId": "9",
-        "name": "Job",
+        "name": "///aufdecken.meersalz.stehe",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -109,7 +109,7 @@
     },
     {
         "pinId": "10",
-        "name": "Lotlux",
+        "name": "///kannst.sehr.porträt",
         "bagsAvailable": false,
         "bagsClean": true,
         "coordinates": [
@@ -121,7 +121,7 @@
     },
     {
         "pinId": "11",
-        "name": "Zoolab",
+        "name": "///frühstück.schief.niemand",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [
@@ -133,7 +133,7 @@
     },
     {
         "pinId": "12",
-        "name": "Span",
+        "name": "///brücken.angedacht.geschenk",
         "bagsAvailable": false,
         "bagsClean": true,
         "coordinates": [
@@ -145,7 +145,7 @@
     },
     {
         "pinId": "13",
-        "name": "Tin",
+        "name": "///wein.popmusik.heutige",
         "bagsAvailable": false,
         "bagsClean": true,
         "coordinates": [
@@ -157,7 +157,7 @@
     },
     {
         "pinId": "14",
-        "name": "Wrapsafe",
+        "name": "///kinos.buch.zelter",
         "bagsAvailable": true,
         "bagsClean": true,
         "coordinates": [
@@ -169,7 +169,7 @@
     },
     {
         "pinId": "15",
-        "name": "Andalax",
+        "name": "///kino.hinweis.decken",
         "bagsAvailable": true,
         "bagsClean": false,
         "coordinates": [

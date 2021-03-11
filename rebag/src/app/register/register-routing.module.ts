@@ -25,20 +25,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'onboarding',
-    loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingPageModule)
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
   {
-    path: 'input-name',
-    loadChildren: () => import('./input-name/input-name.module').then(m => m.InputNamePageModule)
+    path: 'verify',
+    loadChildren: () => import('./verify/verify.module').then( m => m.VerifyPageModule)
   },
   {
-    path: 'input-phonenumber',
-    loadChildren: () => import('./input-phonenumber/input-phonenumber.module').then(m => m.InputPhonenumberPageModule)
-  },
-  {
-    path: 'validation',
-    loadChildren: () => import('./validation/validation.module').then(m => m.ValidationPageModule)
+    path: 'privacy-policy',
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   }
 
 ];
