@@ -13,6 +13,9 @@
 
 
 <ion-content [fullscreen]="true">
+  <ion-item class="no-border">
+    <ion-button class="rebag-button center" fill="outline" [routerLink]="['./ideas']">Ideen ansehen</ion-button>
+  </ion-item>
 
   <!--Toggle für Standort-->
   <ion-item class="no-border">
@@ -42,19 +45,17 @@
     </ion-item>
 
     <!--Foto aufnehmen-->
-    <ion-item  *ngIf="!imageTook" class="no-border">
+    <ion-item class="no-border">
       <ion-button class="rebag-button" (click)="takePhoto()">Foto aufnehmen</ion-button>
-     </ion-item>
-     <ion-item *ngIf="imageTook" class="no-border" >
-      <ion-button class="rebag-button" fill="outline" (click)="takePhoto()">Erneut aufnehmen</ion-button>
-     </ion-item>
-
+    </ion-item>
 
 
     <!--Speichern Button-->
     <ion-item class="no-border">
       <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
+
+
   </ion-list>
 
 </ion-content>

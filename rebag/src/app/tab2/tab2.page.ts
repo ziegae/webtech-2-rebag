@@ -23,6 +23,7 @@ export class Tab2Page implements OnInit {
   imageBase64: any = null;
   toggle: boolean = true;
   isShown = false;
+  imageTook= false;
 
   constructor(private markersService: MarkersService, public modalController: ModalController) {
 
@@ -48,7 +49,9 @@ export class Tab2Page implements OnInit {
       allowEditing: true,
       resultType: CameraResultType.Base64
     });
-    this.imageBase64 = 'data:image/' + image.format + ';base64,' + image.base64String;
+    this.imageBase64 = image.base64String;
+    this.imageTook=true;
+    console.log("bild aufgenommen")
   }
 
   //Standort speichern
