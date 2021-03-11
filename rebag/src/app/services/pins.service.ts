@@ -60,14 +60,14 @@ export class MarkersService {
   }
 
   resetAvailability(loadedPin: any){
-      loadedPin.bagsAvailable = "true";
+      loadedPin.availabilityReport = 0;
        this.markers[loadedPin.pinId-1]=loadedPin;
        console.log("service gibt aus" + JSON.stringify(this.markers));
 
   }
 
   resetClean(loadedPin: any) { 
-    loadedPin.bagsClean = "true";
+    loadedPin.cleaningReport = 0;
    this.markers[loadedPin.pinId-1]= loadedPin
     console.log("service gibt aus" + JSON.stringify(this.markers));
   }

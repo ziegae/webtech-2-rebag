@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { MarkersService } from '../../services/pins.service';
 import { ActivatedRoute } from '@angular/router'
 import { ModalController } from '@ionic/angular';
-import { PushNotificationPage } from './../push-notification/push-notification.page';
+
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,24 +19,29 @@ export class OverviewPage implements OnInit {
  
   markers: any = [];
   loadedPin: any;
-  bagsClean: string;
- 
+
+
+  bagsAvailable:boolean;
+  bagsClean:boolean;
+
   imgSrcBagsClean: any;
   txtBagsClean: any;
 
   imgSrcBagsAvailable: any;
-  txtBagsAvailable: any;
+  txtBagsAvailable: any;  
 
-  
  
   constructor(
     private markersService: MarkersService,
     private activatedRoute: ActivatedRoute,
-    public modalController: ModalController) {
+    public modalController: ModalController,
+    private domSanitizer: DomSanitizer ) {
     this.markersService.getMarkersSubject().subscribe(() => {
       this.markers = this.markersService.getMarkers();
     });
-  }
+    
+    
+    }
 
 
   //Marker und Status abfrage
@@ -48,6 +54,7 @@ export class OverviewPage implements OnInit {
       const  pinId = paramMap.get('pinId');
       this.loadedPin = this.markersService.getPinId(pinId);
     });
+    // this.domSanitizer.bypassSecurityTrustResourceUrl(this.loadedPin.imageBase64);
     this.reloadStatus();
   }
 
@@ -60,7 +67,7 @@ export class OverviewPage implements OnInit {
 
   //Verfügbarkeits Stauts zurücksetzen
   async resetAvailabilityModal() {
-    if (!this.loadedPin.bagsAvailable) {
+    if (!this.bagsAvailable) {
       let modal = await this.modalController.create({ component: ResetAvailabilityPage });
       modal.onDidDismiss().then(() => {
         this.reloadStatus();
@@ -73,7 +80,7 @@ export class OverviewPage implements OnInit {
 
   //Sauberkeits Status zurücksetzen
   async resetCleanModal() {
-    if (!this.loadedPin.bagsClean) {
+    if (!this.bagsClean) {
       const modal = await this.modalController.create({ component: ResetCleanPage });
       modal.onDidDismiss().then(() => {
         this.reloadStatus();
@@ -84,12 +91,6 @@ export class OverviewPage implements OnInit {
   }
 
 
-  //Create Push-Notification Page
-  async pushNotModal(){
-    const modal = await this.modalController.create({ component: PushNotificationPage });
-        return await modal.present();
-  }
-
 
   //Set Pin ID
   setOverviewPinId() {
@@ -99,18 +100,24 @@ export class OverviewPage implements OnInit {
 
   //Aktuellen Status laden
   reloadStatus() {
-    if (this.loadedPin.bagsAvailable) {
+    if(this.loadedPin.availabilityReport < 3 ){
+      this.bagsAvailable = true; 
       this.imgSrcBagsAvailable = "bagsAvailable_status-true.svg";
       this.txtBagsAvailable = "Es sind Taschen vorhanden!";
-
-    } else {
+    }
+    else{
+      this.bagsAvailable = false; 
       this.imgSrcBagsAvailable = "bagsAvailable_status-false.svg";
       this.txtBagsAvailable = "Es fehlen Taschen!";
+
     }
-    if (this.loadedPin.bagsClean) {
+    if(this.loadedPin.cleaningReport < 3 ){
+      this.bagsClean = true; 
       this.imgSrcBagsClean = "bagsClean_status-true.svg";
       this.txtBagsClean = "Taschen sind sauber!";
-    } else {
+    }
+    else{
+      this.bagsClean = false; 
       this.imgSrcBagsClean = "bagsClean_status-false.svg";
       this.txtBagsClean = "Taschen zu waschen!";
     }

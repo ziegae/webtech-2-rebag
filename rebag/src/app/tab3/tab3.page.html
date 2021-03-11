@@ -18,7 +18,7 @@
     <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
             
        <ion-avatar class="ion-margin"> 
-        <img src="../assets/img/pin-img/{{marker.pinId}}.jpg">
+        <img src="{{'data:image/jpg;base64,'+ marker.imageBase64}}">
       </ion-avatar>
       {{marker.name}}  
 

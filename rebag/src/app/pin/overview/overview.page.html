@@ -5,18 +5,15 @@
     </ion-buttons>
     <!--Pin Name laden-->
     <ion-title>{{loadedPin.name}}</ion-title>
-    <!--Notification Icon-->
-    <ion-icon (click)="pushNotModal()" slot="end" name="notifications-outline"></ion-icon>
-  </ion-toolbar>
+   </ion-toolbar>
 </ion-header>
 
 
 
 <ion-content>
-
   <!--Image laden-->
   <div class="img-container">
-    <img class="ion-no-padding ion-no-margin" src="../assets/img/pin-img/{{loadedPin.pinId}}.jpg">
+    <img class="ion-no-padding img-overview" src="{{'data:image/jpg;base64,' + loadedPin.imageBase64}}"/>
   </div>
 
   <!--Pin Name-->
@@ -35,13 +32,13 @@
   </ion-text>
 
   <!--Status Verfügbarkeit-->
-  <ion-item class="" (click)="resetAvailabilityModal(); setOverviewPinId()">
+  <ion-item  (click)="resetAvailabilityModal(); setOverviewPinId()">
 
     <!--Pin Status Image-->
     <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsAvailable}}">
 
     <!--Pfeil nach rechts-->
-    <ion-icon *ngIf="!loadedPin.bagsAvailable" slot="end" name="chevron-forward-outline"></ion-icon>
+    <ion-icon *ngIf="!bagsAvailable" slot="end" name="chevron-forward-outline"></ion-icon>
 
     <!--Pin Status laden-->
     <ion-text>
@@ -58,25 +55,12 @@
     <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsClean}}">
 
     <!--Pfeil nach rechts-->
-    <ion-icon *ngIf="!loadedPin.bagsClean" slot="end" name="chevron-forward-outline"></ion-icon>
+    <ion-icon *ngIf="!bagsClean" slot="end" name="chevron-forward-outline"></ion-icon>
 
     <!--Pin Status laden-->
     <ion-text>
       {{txtBagsClean}}
     </ion-text>
-
   </ion-item>
-
-
-  <!--Probleme Abschnitt-->
-  <!-- <ion-text>
-    <h4>Probleme</h4>
-    <ion-item>Problem melden</ion-item>
-   </ion-text> -->
-
-  <ion-text>
-    <h4>Weiteres</h4>
-    <ion-item>Bild hinzufügen</ion-item>
-  </ion-text>
 
 </ion-content>
