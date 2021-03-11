@@ -4,12 +4,13 @@
       <ion-back-button></ion-back-button>
       </ion-buttons>
     <ion-title>Taschen zu waschen?</ion-title>
-    <ion-icon (click)="dismiss()" slot="end" name="close-outline"></ion-icon>
+    <ion-icon slot="end" (click)="dismiss()" name="close" class="ion-margin"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <p>Klicke unten, um anzuzeigen, dass wieder Taschen vorhanden sind! </p>
   <img class="center" src="../assets/img/pinstatus/bagsClean@2x.png">
-  <ion-button (click)="resetClean()">Taschen jetzt vorhanden</ion-button>
+  <ion-button class="center" (click)="resetClean()">Taschen jetzt vorhanden</ion-button>
+
 </ion-content>
