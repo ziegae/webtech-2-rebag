@@ -3,21 +3,6 @@ ion-slides {
     background-color: rgb(62, 62, 62);
   }
  
- .gradient-top{
-    position: absolute;
-    top:0%;
-    height: 40%;
-    width: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgb(62, 62, 62) 80%);
-  }
-
-  .gradient-bottom{
-    position: absolute;
-    bottom:0%;
-    height: 30%;
-    width: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgb(62, 62, 62) 80%);
-  }
 
   .slide-con{
   display: block;
