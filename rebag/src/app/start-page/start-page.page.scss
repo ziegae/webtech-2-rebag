@@ -1,0 +1,47 @@
+ion-header{
+    position: absolute;
+}
+
+ion-toolbar {
+    --ion-background-color: transparent;
+    --opacity: 0;
+}
+
+ion-content{
+    --background: url('/assets/img/Rebag-Happy.jpg') no-repeat center center / cover;
+}
+
+.start-text {
+    text-align: center;
+    color: #f2f2f2;
+    padding-top: 200px;
+    overflow: hidden;
+    text-shadow: 0px 2px 4px #000;
+}
+
+.start-text h1 {
+    font-weight: 900;
+    padding: 0 50px 0 50px;
+}
+
+.start-text p {
+    margin-top: -5px;
+    font-weight: 600;
+    padding: 0 50px 0 50px;
+
+}
+
+.buttons {
+    position: fixed;
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    --ion-color-primary: #57B660;
+    padding: 0 10px 0 10px;
+}
+
+.buttons ion-button {
+    --color-hover: #f2f2f2 !important;
+    --background-hover: #3C9644 !important;
+    --background-activated: #3C9644 !important;
+}

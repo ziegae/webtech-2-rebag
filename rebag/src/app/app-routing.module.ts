@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from 'src/app/guards/auth.guard'
 
 const routes: Routes = [
   
   {
     path: '',
     // loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    //loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'start-page',
+    pathMatch: 'full'
   },
   // {
   //   path: 'tabs',
@@ -14,16 +17,13 @@ const routes: Routes = [
   // },
   {
     path: 'start-page',
-    loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
+    loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule),
+    //canActivate: [AuthGuard]
   },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-   {
-        path: 'register/test',
-        loadChildren: () => import('./register/test/test.module').then( m => m.TestPageModule)
-      },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'pin',
     loadChildren: () => import('./pin/pin.module').then( m => m.PinPageModule)
+  },
+  {
+    path: 'test-tab',
+    loadChildren: () => import('./test-tab/test-tab.module').then( m => m.TestTabPageModule)
   }
 ];
 @NgModule({

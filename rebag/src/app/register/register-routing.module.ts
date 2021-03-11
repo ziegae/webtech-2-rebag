@@ -25,16 +25,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'input-name',
-    loadChildren: () => import('./input-name/input-name.module').then(m => m.InputNamePageModule)
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
   },
   {
-    path: 'input-phonenumber',
-    loadChildren: () => import('./input-phonenumber/input-phonenumber.module').then(m => m.InputPhonenumberPageModule)
+    path: 'verify',
+    loadChildren: () => import('./verify/verify.module').then( m => m.VerifyPageModule)
   },
   {
-    path: 'validation',
-    loadChildren: () => import('./validation/validation.module').then(m => m.ValidationPageModule)
+    path: 'privacy-policy',
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   }
 
 ];

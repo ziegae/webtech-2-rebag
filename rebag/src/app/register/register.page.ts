@@ -12,4 +12,10 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
+  policyChecked: boolean;
+
+  toggleCheckbox() {
+    this.policyChecked = !this.policyChecked;
+  }
+
 }
