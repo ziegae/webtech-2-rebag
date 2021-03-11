@@ -41,6 +41,16 @@
       <ion-input [(ngModel)]="longitude" placeholder="Longitude.."></ion-input>
     </ion-item>
 
+    <!--Foto aufnehmen-->
+    <ion-item  *ngIf="!imageTook" class="no-border">
+      <ion-button class="rebag-button" (click)="takePhoto()">Foto aufnehmen</ion-button>
+     </ion-item>
+     <ion-item *ngIf="imageTook" class="no-border" >
+      <ion-button class="rebag-button" fill="outline" (click)="takePhoto()">Erneut aufnehmen</ion-button>
+     </ion-item>
+
+
+
     <!--Speichern Button-->
     <ion-item class="no-border">
       <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
