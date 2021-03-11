@@ -1,0 +1,182 @@
+[
+    {
+        "pinId": "1",
+        "name": "Bigtax",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.26794242552926,
+            7.79301833329877
+        ],
+        "availabilityReport": "3",
+        "cleaningReport": "0"
+    },
+    {
+        "pinId": "2",
+        "name": "Namfix",
+        "bagsAvailable": false,
+        "bagsClean": true,
+        "coordinates": [
+            52.253877,
+            8.048962
+        ],
+        "availabilityReport": "2",
+        "cleaningReport": "4"
+    },
+    {
+        "pinId": "3",
+        "name": "Quo Lux",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.310523,
+            8.060679
+        ],
+        "availabilityReport": "3",
+        "cleaningReport": "5"
+    },
+    {
+        "pinId": "4",
+        "name": "Ronstring",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.266129,
+            8.008075
+        ],
+        "availabilityReport": "2",
+        "cleaningReport": "1"
+    },
+    {
+        "pinId": "5",
+        "name": "Y-Solowarm",
+        "bagsAvailable": true,
+        "bagsClean": true,
+        "coordinates": [
+            52.248671,
+            8.083154
+        ],
+        "availabilityReport": "2",
+        "cleaningReport": "2"
+    },
+    {
+        "pinId": "6",
+        "name": "Fixflex",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.251562,
+            8.016739
+        ],
+        "availabilityReport": "5",
+        "cleaningReport": "5"
+    },
+    {
+        "pinId": "7",
+        "name": "Vagram",
+        "bagsAvailable": false,
+        "bagsClean": false,
+        "coordinates": [
+            52.280925,
+            8.045348
+        ],
+        "availabilityReport": "4",
+        "cleaningReport": "3"
+    },
+    {
+        "pinId": "8",
+        "name": "Matsoft",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.279153,
+            8.009502
+        ],
+        "availabilityReport": "4",
+        "cleaningReport": "1"
+    },
+    {
+        "pinId": "9",
+        "name": "Job",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.317085,
+            8.041627
+        ],
+        "availabilityReport": "4",
+        "cleaningReport": "4"
+    },
+    {
+        "pinId": "10",
+        "name": "Lotlux",
+        "bagsAvailable": false,
+        "bagsClean": true,
+        "coordinates": [
+            52.316938,
+            8.058505
+        ],
+        "availabilityReport": "2",
+        "cleaningReport": "3"
+    },
+    {
+        "pinId": "11",
+        "name": "Zoolab",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.263038,
+            8.066012
+        ],
+        "availabilityReport": "1",
+        "cleaningReport": "0"
+    },
+    {
+        "pinId": "12",
+        "name": "Span",
+        "bagsAvailable": false,
+        "bagsClean": true,
+        "coordinates": [
+            52.275758,
+            8.067917
+        ],
+        "availabilityReport": "1",
+        "cleaningReport": "0"
+    },
+    {
+        "pinId": "13",
+        "name": "Tin",
+        "bagsAvailable": false,
+        "bagsClean": true,
+        "coordinates": [
+            52.262343,
+            8.044831
+        ],
+        "availabilityReport": "4",
+        "cleaningReport": "1"
+    },
+    {
+        "pinId": "14",
+        "name": "Wrapsafe",
+        "bagsAvailable": true,
+        "bagsClean": true,
+        "coordinates": [
+            52.286452,
+            8.087642
+        ],
+        "availabilityReport": "4",
+        "cleaningReport": "0"
+    },
+    {
+        "pinId": "15",
+        "name": "Andalax",
+        "bagsAvailable": true,
+        "bagsClean": false,
+        "coordinates": [
+            52.247600,
+            8.026701
+        ],
+        "availabilityReport": "5",
+        "cleaningReport": "5"
+    }
+]

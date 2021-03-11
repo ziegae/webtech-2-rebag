@@ -1,16 +1,50 @@
-<ion-header [translucent]="true">
+<ion-header class="header-bg">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Hey Miriam!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon slot="icon-only" name="cog">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!--Toggle für Standort-->
+  <ion-item class="no-border">
+    <h4 class="no-margin">Aktuellen Standort verwenden</h4>
+    <ion-toggle slot="end" [(ngModel)]="toggle" (click)="toggleGeo()"></ion-toggle>
+  </ion-item>
+
+
+  <!--Name-->
+  <ion-list class="align-mid">
+    <h4>Name des Standortes</h4>
+    <ion-item>
+      <ion-input [(ngModel)]="name" placeholder="Name.."></ion-input>
+    </ion-item>
+
+
+    <!--Koordinaten nur anzeigen wenn Toggle-->
+    <br *ngIf="isShown">
+
+    <h4 *ngIf="isShown">Bearbeite deine Koordinaten</h4>
+    <ion-item *ngIf="isShown">
+      <ion-input [(ngModel)]="latitude" placeholder="Latitude.."></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="isShown">
+      <ion-input [(ngModel)]="longitude" placeholder="Longitude.."></ion-input>
+    </ion-item>
+
+    <!--Speichern Button-->
+    <ion-item class="no-border">
+      <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

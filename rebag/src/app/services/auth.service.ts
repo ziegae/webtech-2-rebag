@@ -44,7 +44,7 @@ export class AuthService {
     if (firebase.auth().currentUser.emailVerified == false) {
       this.router.navigate(['register/verify']);
     }else{
-      this.router.navigate(['test-tab']);
+      this.router.navigate(['tabs']);
     }
   }
 

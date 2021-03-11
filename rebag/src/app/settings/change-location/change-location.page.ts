@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangeLocationPage implements OnInit {
 
+  toggleLocation: boolean = true;
+  toggleLocation2: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

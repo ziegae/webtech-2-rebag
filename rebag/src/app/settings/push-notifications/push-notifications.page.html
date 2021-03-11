@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>push-notifications</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Benachrichtigungen</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+  <!--Suchfeld-->
+  <h4>Standort suchen</h4>
+  <div class="input-notification">
+    <ion-input placeholder="Name des Standorts"></ion-input>
+  </div>
+
+  <br><br>
+
+  <!--Vorgeschlagene Standorte-->
+  <ion-item [routerLink]="[]">
+    <img class="img-list-view" src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+    <ion-text>
+      <h4 class="no-margin">Name des Standortes</h4>
+    </ion-text>
+  </ion-item>
+
+  <ion-item [routerLink]="[]">
+    <img class="img-list-view" src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+    <ion-text>
+      <h4 class="no-margin">Name des Standortes</h4>
+    </ion-text>
+  </ion-item>
+
+  <ion-item [routerLink]="[]">
+    <img class="img-list-view" src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
+    <ion-text>
+      <h4 class="no-margin">Name des Standortes</h4>
+    </ion-text>
+  </ion-item>
 
 </ion-content>

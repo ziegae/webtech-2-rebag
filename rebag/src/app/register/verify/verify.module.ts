@@ -8,6 +8,8 @@ import { VerifyPageRoutingModule } from './verify-routing.module';
 
 import { VerifyPage } from './verify.page';
 
+import {GoogleMapsModule} from '@angular/google-maps';
+
 @NgModule({
   imports: [
     CommonModule,

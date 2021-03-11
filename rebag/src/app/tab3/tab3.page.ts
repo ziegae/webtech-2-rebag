@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MarkersService } from '../services/pins.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  markers: any = [];
 
-  constructor() {}
+  constructor(private markersService: MarkersService) {
+    //marker aus service laden
+    this.markers = this.markersService.getMarkers();
+    this.markersService.getMarkersSubject().subscribe(() => {
+      this.markers = this.markersService.getMarkers();
+    });
+    console.log("marker werden geladen");
+  }
 
 }
