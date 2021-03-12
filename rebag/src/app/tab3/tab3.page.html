@@ -15,7 +15,7 @@
 <ion-content [fullscreen]="true">
 
     <!--Auf Pin verweisen und Marker anzeigen-->
-    <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
+    <ion-item class="ion-no-padding" *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
             
        <ion-avatar class="ion-margin"> 
         <img src="{{'data:image/jpg;base64,'+ marker.imageBase64}}">
@@ -30,7 +30,7 @@
           <div *ngIf="marker.availabilityReport < 3 && marker.cleaningReport >= 3" class="bagsUnclean" ></div>
         </div>
                 <!-- Item als Clickbar anzeigen -->
-        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <!--<ion-icon name="chevron-forward-outline"></ion-icon>-->
       </div>
     </ion-item>
 </ion-content>
