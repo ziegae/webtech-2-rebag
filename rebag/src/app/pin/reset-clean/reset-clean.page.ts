@@ -32,8 +32,7 @@ export class ResetCleanPage implements OnInit {
  * resetClean() gibt an den markersService den aktuellen Pin weiter, dieser setzt den Status für diesen Pin zurück
  */
   resetClean() {
-    this.markersService.resetClean(this.markersService.getOverviewPinId(
-    ));
+    this.markersService.resetClean();
     this.modalController.dismiss();
 
   }

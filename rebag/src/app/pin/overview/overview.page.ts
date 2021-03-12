@@ -85,13 +85,18 @@ export class OverviewPage implements OnInit {
 
 
 
-  //gibt den geladenen Marker (loaded Pin) an der Service weiter
+  //gibt das Objekt, das loadedPin zugewiesen ist an den service weiter, um den Wert in dem array markers entsprechend ändern zu können.
   setOverviewPinId() {
     this.markersService.setOverviewPinId(this.loadedPin);
   }
 
 
   //Aktuellen Status laden
+  /**
+   * Aktuellen Status
+   * Wenn der availabilityReport bzw cleaningReport des geladenen Markers größer drei ist, 
+   * wird das Icon in Warnfarbe angezeigt und Text dazu passend geändert.
+   */
   reloadStatus() {
     if(this.loadedPin.availabilityReport < 3 ){
       this.bagsAvailable = true; 

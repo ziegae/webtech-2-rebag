@@ -10,7 +10,7 @@ export class MarkersService {
   markers: any = [];
   markersSubject: Subject<any> = new Subject<any>();
 
-  overviewPinId:any;
+  overviewPinId: any;
 
 
   constructor(private http: HttpClient) {
@@ -51,28 +51,23 @@ export class MarkersService {
     };
   }
 
-  setOverviewPinId(loadedPin: any){
+  setOverviewPinId(loadedPin: any) {
     this.overviewPinId = loadedPin;
   }
 
-  getOverviewPinId(){
-    return this.overviewPinId;
+
+
+  resetAvailability() {
+    this.overviewPinId.availabilityReport = 0;
+    this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
   }
 
-  resetAvailability(loadedPin: any){
-      loadedPin.availabilityReport = 0;
-       this.markers[loadedPin.pinId-1]=loadedPin;
-       console.log("service gibt aus" + JSON.stringify(this.markers));
-
+  resetClean() {
+    this.overviewPinId.cleaningReport = 0;
+    this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
   }
 
-  resetClean(loadedPin: any) { 
-    loadedPin.cleaningReport = 0;
-   this.markers[loadedPin.pinId-1]= loadedPin
-    console.log("service gibt aus" + JSON.stringify(this.markers));
-  }
 
- 
- 
+
 
 }

@@ -36,13 +36,7 @@ export class Tab1Page {
   }
 
 
-  //Console log
-  ngOnInit() {
-    console.log("map screen initialisiert");
-  }
-
-
-  //Aktuelle Position finden und Map laden
+    //Aktuelle Position finden und Map laden
   ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
@@ -50,8 +44,7 @@ export class Tab1Page {
     });
 
     this.showMap();
-    console.log("map wird geladen");
-  }
+    }
 
 
   ionViewDidEnter() {}
@@ -194,11 +187,11 @@ export class Tab1Page {
       { name: "Styled Map" }
     );
 
-    //Map Position und EIgenschaften festlegen
+    //Map Position und Eigenschaften festlegen
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       this.map.setCenter(latLng);
-      this.map.setZoom(18);
+      this.map.setZoom(16);
     });
 
     //Map Style festlegen
