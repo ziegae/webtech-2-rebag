@@ -46,7 +46,8 @@
 
     <!--Foto aufnehmen-->
     <ion-item class="no-border">
-      <ion-button class="rebag-button" (click)="takePhoto()">Foto aufnehmen</ion-button>
+      <ion-button class="rebag-button" (click)="takePhoto()" *ngIf="!imageTook" >Foto aufnehmen</ion-button>
+      <ion-button class="rebag-button" (click)="takePhoto()" *ngIf="imageTook" >Foto erneut aufnehmen</ion-button>
     </ion-item>
 
 
@@ -54,8 +55,6 @@
     <ion-item class="no-border">
       <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
-
-
   </ion-list>
 
 </ion-content>

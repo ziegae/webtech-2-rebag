@@ -11,7 +11,7 @@ const { Geolocation } = Plugins;
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-
+// Platzhalter für den Neuen Marker
   pinId: string = '';
   name: string = '';
   bagsAvailable: boolean = true;
@@ -21,6 +21,8 @@ export class Tab2Page implements OnInit {
   availabilityReport: number = 0;
   cleaningReport: number = 0;
   imageBase64: any = null;
+
+  // weitere
   toggle: boolean = true;
   isShown = false;
   imageTook= false;
@@ -51,13 +53,12 @@ export class Tab2Page implements OnInit {
     });
     this.imageBase64 = image.base64String;
     this.imageTook=true;
-    console.log("bild aufgenommen")
   }
 
   //Standort speichern
   save() {
     const marker = {
-      'pinId': this.pinId,
+      'pinId': this.markersService.getMarkerslength() + 1,
       'name': this.name,
       'basAvailable': this.bagsAvailable,
       'bagsClean': this.bagsClean,
@@ -66,19 +67,23 @@ export class Tab2Page implements OnInit {
       'cleaningReport': this.cleaningReport,
       'imageBase64': this.imageBase64
     };
+    //console.log(JSON.stringify(marker));
+
     this.markersService.add(marker);
-    this.pinId = '';
+
+  //  zurücksetzen der Eingabewerte
+    this.pinId =  '';
     this.name = '';
     this.bagsAvailable = true;
     this.bagsClean = true;
     this.latitude = 0;
     this.longitude = 0;
     this.availabilityReport = 0;
-    this.cleaningReport = 0
+    this.cleaningReport = 0;
     this.imageBase64 = '';
 
     this.toggle = true;
-    this.isShown = false;
+    this.isShown = false;    
   }
 
   //Ansicht der Koordinaten togglen

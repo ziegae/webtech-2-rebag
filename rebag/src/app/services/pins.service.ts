@@ -35,6 +35,10 @@ export class MarkersService {
     return this.markers;
   }
 
+  getMarkerslength(){
+    return this.markers.length;
+  }
+
   add(marker) {
     this.markers.push(marker);
     this.markersSubject.next();
