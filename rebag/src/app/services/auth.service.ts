@@ -4,13 +4,21 @@ import {AngularFireAuth} from '@angular/fire/auth'
 import {Router} from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 
+export  interface UserPro{
+  username: string;
+  uid: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   constructor(public auth: AngularFireAuth, public router: Router, public toaster: ToastController, public loadingCtrl: LoadingController) {
    }
+
+   private user : UserPro;
 
   loginFireauth(value){
     return new Promise<any> ( (resolve, reject)=>{
@@ -47,6 +55,22 @@ export class AuthService {
       this.router.navigate(['tabs/tab1']);
     }
   }
+
+  signOut(){
+    this.auth.signOut().then(() => {
+      this.router.navigate(['start-page']);
+    })
+  }
+
+  setUser(user: UserPro){
+    return this.user = user;
+  }
+
+  getUID(): string{
+    return this.user.uid;
+  }
+
+
 
   /*async verificationCheck(){
     if (firebase.auth().currentUser.emailVerified == true) {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from 'src/app/services/auth.service';
 import {Router} from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,7 @@ export class LoginPage implements OnInit {
 
   validationFormUser: FormGroup;
 
-  constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router) { }
+  constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router, private firestore: AngularFirestore, private navCtrl: NavController) { }
 
   ngOnInit() {
     this.validationFormUser = this.formbuilder.group({
@@ -38,13 +40,52 @@ export class LoginPage implements OnInit {
     })
   }
 
-  LoginUser(value){
+  /*LoginUser(value){
     console.log("Succesessfully logged in");
     try{
       this.authservice.loginFireauth(value).then( resp =>{
         console.log(resp);
         this.authservice.loginVerificationCheck();
       })
+    }catch(err){
+      console.log(err);
+    }
+  }*/
+
+  LoginUser(value){
+    console.log("Am logged in");
+    try{
+       this.authservice.loginFireauth(value).then( resp =>{
+         console.log(resp);
+      //  this.router.navigate(['tabs'])
+   
+       if(resp.user){
+  
+         this.authservice.setUser({
+           username : resp.user.displayName,
+           uid: resp.user.uid
+         })
+  
+        const userProfile = this.firestore.collection('profile').doc(resp.user.uid);
+  
+         userProfile.get().subscribe( result=>{
+  
+          if(result.exists){
+            this.navCtrl.navigateForward(['tabs/tab1']);
+          }else{
+  
+            this.firestore.doc(`profile/${this.authservice.getUID()}`).set({
+              name: resp.user.displayName,
+              email: resp.user.email
+            });
+  
+            this.authservice.loginVerificationCheck();
+          }
+         })
+       }
+    
+         
+       })
     }catch(err){
       console.log(err);
     }

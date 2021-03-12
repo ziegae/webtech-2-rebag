@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    //canActivate: [AuthGuard]
   },
   {
     path: 'register',
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'pin',
     loadChildren: () => import('./pin/pin.module').then(m => m.PinPageModule)
+  },
+  {
+    path: 'start-page',
+    loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
   },
   {
     path: '',

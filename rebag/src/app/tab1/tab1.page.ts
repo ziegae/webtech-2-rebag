@@ -5,6 +5,10 @@ import { Plugins} from '@capacitor/core';
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/services/auth.service';
+import firebase from "firebase/app";
 
 declare var google: any;
 
@@ -17,6 +21,9 @@ declare var google: any;
 
 export class Tab1Page {
 
+  profile: any;
+  profileName: any;
+  
   map: any;
   latitude: number = 0;
   longitude: number = 0;
@@ -29,10 +36,23 @@ export class Tab1Page {
 
 
   //Marker laden
-  constructor(private markersService: MarkersService, private router: Router) {
+  constructor(private markersService: MarkersService, private router: Router, public authService: AuthService, private database : AngularFirestore, public auth: AngularFireAuth) {
     this.markersService.getMarkersSubject().subscribe(() => {
       this.loadMarkers();
     });
+
+    firebase.auth().onAuthStateChanged(user => {
+      console.log("AUTH_USER", user);
+
+      if (user) {
+        const result = this.database.doc(`/profile/${this.authService.getUID()}`);
+        var userprofile = result.valueChanges();
+        userprofile.subscribe(profile => {
+          console.log("PROFILE::", profile);
+           this.profileName = profile['name'];
+        })
+      }
+    })
   }
 
 
