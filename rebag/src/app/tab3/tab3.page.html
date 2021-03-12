@@ -25,10 +25,9 @@
       <div slot="end" >
         <!-- Status des Pins anzeigen -->
         <div style="display: inline-block;">
-          <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood" ></div>
-          <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable" ></div>
-          <div *ngIf="!marker.bagsAvailable && marker.bagsClean" class="bagsUnavailable" ></div>
-          <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
+          <div *ngIf="marker.availabilityReport < 3 && marker.cleaningReport < 3" class="allgood" ></div>
+          <div *ngIf="marker.availabilityReport >= 3" class="bagsUnavailable" ></div>
+          <div *ngIf="marker.availabilityReport < 3 && marker.cleaningReport >= 3" class="bagsUnclean" ></div>
         </div>
                 <!-- Item als Clickbar anzeigen -->
         <ion-icon name="chevron-forward-outline"></ion-icon>

@@ -16,17 +16,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 export class OverviewPage implements OnInit {
- 
+ //Array für Marker für die Standorte aus dem pins.service, und einzelner geladener pin auf angezeigter Seite
   markers: any = [];
   loadedPin: any;
 
-
+// folgende Variablen bestimmen die Inhalte der overview.html , siehe reloadStatus()
   bagsAvailable:boolean;
   bagsClean:boolean;
-
   imgSrcBagsClean: any;
   txtBagsClean: any;
-
   imgSrcBagsAvailable: any;
   txtBagsAvailable: any;  
 
@@ -36,6 +34,7 @@ export class OverviewPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     public modalController: ModalController,
     private domSanitizer: DomSanitizer ) {
+      //Marker aus dem pins.service laden
     this.markersService.getMarkersSubject().subscribe(() => {
       this.markers = this.markersService.getMarkers();
     });
@@ -46,6 +45,7 @@ export class OverviewPage implements OnInit {
 
   //Marker und Status abfrage
   ngOnInit() {
+    //erhält die aktivierte Route, sodass Marker mit der PinId der aktivierten Route in loadedPin geladen werden kann.
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('pinId')) {
         //redirect
@@ -54,22 +54,15 @@ export class OverviewPage implements OnInit {
       const  pinId = paramMap.get('pinId');
       this.loadedPin = this.markersService.getPinId(pinId);
     });
-    // this.domSanitizer.bypassSecurityTrustResourceUrl(this.loadedPin.imageBase64);
     this.reloadStatus();
   }
-
-  ionViewDidEnter() {
-    this.reloadStatus();
-  }
-
-
    
-
   //Verfügbarkeits Stauts zurücksetzen
   async resetAvailabilityModal() {
     if (!this.bagsAvailable) {
       let modal = await this.modalController.create({ component: ResetAvailabilityPage });
       modal.onDidDismiss().then(() => {
+
         this.reloadStatus();
       });
       return await modal.present();
@@ -92,7 +85,7 @@ export class OverviewPage implements OnInit {
 
 
 
-  //Set Pin ID
+  //gibt den geladenen Marker (loaded Pin) an der Service weiter
   setOverviewPinId() {
     this.markersService.setOverviewPinId(this.loadedPin);
   }
