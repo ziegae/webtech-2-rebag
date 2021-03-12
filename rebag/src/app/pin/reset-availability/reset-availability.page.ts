@@ -19,8 +19,7 @@ export class ResetAvailabilityPage implements OnInit {
   }
 
   resetAvailability() {
-    this.markersService.resetAvailability(this.markersService.getOverviewPinId(
-    ));
+    this.markersService.resetAvailability();
     this.modalController.dismiss();
   }
 

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MarkersService } from '../services/pins.service';
 import { Plugins, CameraResultType } from '@capacitor/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import firebase from 'firebase/app';
+import { AuthService } from 'src/app/services/auth.service';
 const { Camera } = Plugins;
 const { Geolocation } = Plugins;
 
@@ -12,6 +16,9 @@ const { Geolocation } = Plugins;
 })
 export class Tab2Page implements OnInit {
 
+  profile: any;
+  profileName: any;
+  
   pinId: string = '';
   name: string = '';
   bagsAvailable: boolean = true;
@@ -23,9 +30,21 @@ export class Tab2Page implements OnInit {
   imageBase64: any = null;
   toggle: boolean = true;
   isShown = false;
+  imageTook= false;
 
-  constructor(private markersService: MarkersService, public modalController: ModalController) {
+  constructor(private markersService: MarkersService, public modalController: ModalController, public authService: AuthService, private database : AngularFirestore) {
+    firebase.auth().onAuthStateChanged(user => {
+      console.log("AUTH_USER", user);
 
+      if (user) {
+        const result = this.database.doc(`/profile/${this.authService.getUID()}`);
+        var userprofile = result.valueChanges();
+        userprofile.subscribe(profile => {
+          console.log("PROFILE::", profile);
+           this.profileName = profile['name'];
+        })
+      }
+    })
   }
 
   ngOnInit() { }
@@ -48,7 +67,9 @@ export class Tab2Page implements OnInit {
       allowEditing: true,
       resultType: CameraResultType.Base64
     });
-    this.imageBase64 = 'data:image/' + image.format + ';base64,' + image.base64String;
+    this.imageBase64 = image.base64String;
+    this.imageTook=true;
+    console.log("bild aufgenommen")
   }
 
   //Standort speichern

@@ -12,12 +12,12 @@
 
   <!--Headline-->
   <ion-text>
-    <h4>Nutzername</h4>
+    <h4>Name</h4>
   </ion-text>
 
   <!--Text-->
   <ion-text>
-    <p>Miriam</p>
+    <p>{{profileName}}</p>
   </ion-text>
 
   <br>
@@ -29,7 +29,7 @@
 
   <!--Text-->
   <ion-text>
-    <p>miriam@beispiel.de</p>
+    <p>{{profileEmail}}</p>
   </ion-text>
 
   <br>
@@ -79,7 +79,7 @@
     </ion-text>
   </ion-item>
 
-  <ion-item [routerLink]="[]">
+  <ion-item [routerLink]="[]" (click)="logoutAlert()">
     <ion-text>
       <p style="color: red">Ausloggen</p>
     </ion-text>

@@ -14,11 +14,14 @@
   </div>
   <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
   <div class="inputs">
+    <!-- Inputfeld für den Namen -->
     <ion-item>
       <ion-input type="text" name="name" formControlName="name" placeholder="Vorname" required></ion-input>
     </ion-item>
+
+    <!-- Inputfeld für die E-Mail-Adresse und zugehörige Fehlermeldung-->
     <ion-item>
-      <ion-input type="email" name="email" formControlName="email" placeholder="E-Mail" required></ion-input>
+      <ion-input type="email" name="email" formControlName="email" placeholder="E-Mail-Adresse" required></ion-input>
     </ion-item>
     <div>
       <ng-container *ngFor="let validation of validationMessages.email">
@@ -27,6 +30,8 @@
         </div>
       </ng-container>
     </div>
+
+    <!-- Inputfeld für das Passwort und Passwort bestätigen sowie zugehörige Fehlermeldung -->
     <ion-item>
       <ion-input type="password" name="password" formControlName="password" placeholder="Passwort" required></ion-input>
     </ion-item>
@@ -51,6 +56,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Button zur nächsten Seite -->
   <div class="next-btn">
     <ion-button type="submit" [disabled]="!validationFormUser.valid">
       Weiter

@@ -1,6 +1,6 @@
 <ion-header class="header-bg">
   <ion-toolbar>
-    <ion-title>Hey Miriam!</ion-title>
+    <ion-title>Hey {{profileName}}!</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/settings']">
         <ion-icon slot="icon-only" name="cog">
@@ -13,6 +13,9 @@
 
 
 <ion-content [fullscreen]="true">
+  <ion-item class="no-border">
+    <ion-button class="rebag-button center" fill="outline" [routerLink]="['./ideas']">Ideen ansehen</ion-button>
+  </ion-item>
 
   <!--Toggle für Standort-->
   <ion-item class="no-border">
@@ -45,13 +48,16 @@
 
     <!--Foto aufnehmen-->
     <ion-item class="no-border">
-      <ion-button class="" (click)="takePhoto()">Foto aufnehmen</ion-button>
-     </ion-item>
+      <ion-button class="rebag-button" (click)="takePhoto()">Foto aufnehmen</ion-button>
+    </ion-item>
+
 
     <!--Speichern Button-->
     <ion-item class="no-border">
       <ion-button class="rebag-button"  (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
+
+
   </ion-list>
 
 </ion-content>

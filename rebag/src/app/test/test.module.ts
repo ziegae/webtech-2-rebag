@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { VerifyPageRoutingModule } from './verify-routing.module';
+import { TestPageRoutingModule } from './test-routing.module';
 
-import { VerifyPage } from './verify.page';
+import { TestPage } from './test.page';
 
 import {GoogleMapsModule} from '@angular/google-maps';
 
@@ -15,13 +15,9 @@ import {GoogleMapsModule} from '@angular/google-maps';
     CommonModule,
     FormsModule,
     IonicModule,
-<<<<<<< HEAD:rebag/src/app/register/verify/verify.module.ts
-    VerifyPageRoutingModule
-=======
     TestPageRoutingModule,
     GoogleMapsModule
->>>>>>> c410878ef175b764045b2a49452981815e34d729:rebag/src/app/test/test.module.ts
   ],
-  declarations: [VerifyPage]
+  declarations: [TestPage]
 })
-export class VerifyPageModule {}
+export class TestPageModule {}
