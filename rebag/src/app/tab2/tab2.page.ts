@@ -21,8 +21,6 @@ export class Tab2Page implements OnInit {
   
   pinId: string = '';
   name: string = '';
-  bagsAvailable: boolean = true;
-  bagsClean: boolean = true;
   latitude: number = 0;
   longitude: number = 0;
   availabilityReport: number = 0;
@@ -75,20 +73,17 @@ export class Tab2Page implements OnInit {
   //Standort speichern
   save() {
     const marker = {
-      'pinId': this.pinId,
+      'pinId': JSON.stringify(this.markersService.getMarkerslength() + 1),
       'name': this.name,
-      'basAvailable': this.bagsAvailable,
-      'bagsClean': this.bagsClean,
       'coordinates': [this.latitude, this.longitude],
       'availabilityReport': this.availabilityReport,
       'cleaningReport': this.cleaningReport,
       'imageBase64': this.imageBase64
     };
     this.markersService.add(marker);
+    console.log("pin hinzugefügt");
     this.pinId = '';
     this.name = '';
-    this.bagsAvailable = true;
-    this.bagsClean = true;
     this.latitude = 0;
     this.longitude = 0;
     this.availabilityReport = 0;
