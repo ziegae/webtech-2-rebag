@@ -58,7 +58,7 @@ export class AuthService {
 
   signOut(){
     this.auth.signOut().then(() => {
-      this.router.navigate(['start-page']);
+      this.router.navigate(['']);
     })
   }
 

@@ -3,8 +3,8 @@ ion-header{
 }
 
 ion-toolbar {
-    --ion-background-color: transparent;
-    --opacity: 0;
+    --ion-background-color: transparent !important;
+    --opacity: 0 !important;
 }
 
 ion-content {
@@ -61,7 +61,8 @@ ion-icon {
 }
 
 ion-back-button {
-    --color: #57B660;
+    --color: #57B660 !important;
+    color: #57B660 !important;
 }
 
 .error-message{

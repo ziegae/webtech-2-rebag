@@ -14,32 +14,23 @@
 
 <ion-content [fullscreen]="true">
 
-  <!--Display Marker and Marker Status-->
-  <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
-      <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood" ></div>
-      <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable" ></div>
-      <div *ngIf="!marker.bagsAvailable && marker.bagsClean" class="bagsUnavailable" ></div>
-       <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
-            {{marker.name}}
+    <!--Auf Pin verweisen und Marker anzeigen-->
+    <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
+            
+       <ion-avatar class="ion-margin"> 
+        <img src="{{'data:image/jpg;base64,'+ marker.imageBase64}}">
+      </ion-avatar>
+      {{marker.name}}  
+
+      <div slot="end" >
+        <!-- Status des Pins anzeigen -->
+        <div style="display: inline-block;">
+          <div *ngIf="marker.availabilityReport < 3 && marker.cleaningReport < 3" class="allgood" ></div>
+          <div *ngIf="marker.availabilityReport >= 3" class="bagsUnavailable" ></div>
+          <div *ngIf="marker.availabilityReport < 3 && marker.cleaningReport >= 3" class="bagsUnclean" ></div>
+        </div>
+                <!-- Item als Clickbar anzeigen -->
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
     </ion-item>
-
-    
-
-  <ion-item-sliding *ngFor="let marker of markers">
-
-    <!--Auf Pin verweisen-->
-    <ion-item [routerLink]="['/pin', marker.pinId]">
-
-      <!--Bild für Listen-->
-      <img class="img-list-view" src="../assets/img/camilo-contreras-G4cZjDTGgVk-unsplash.jpg">
-
-      <!--Name abrufen-->
-      <ion-text>
-        <h4 class="no-margin">{{marker.name}}</h4>
-      </ion-text>
-
-    </ion-item>
-  </ion-item-sliding>
-
-
 </ion-content>

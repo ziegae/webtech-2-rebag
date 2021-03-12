@@ -10,21 +10,18 @@ const routes: Routes = [
   },
   {
     path: ':pinId',
-        children: [
+    children: [
       {
-        path:"",
-        loadChildren: () => import('./overview/overview.module').then( m => m.OverviewPageModule),
+        path: "",
+        loadChildren: () => import('./overview/overview.module').then(m => m.OverviewPageModule),
       },
       {
         path: 'reset-clean',
-      loadChildren: () => import('./reset-clean/reset-clean.module').then( m => m.ResetCleanPageModule)
+        loadChildren: () => import('./reset-clean/reset-clean.module').then(m => m.ResetCleanPageModule)
       }
     ]
   },
-  {
-    path: 'push-notification',
-    loadChildren: () => import('./push-notification/push-notification.module').then( m => m.PushNotificationPageModule)
-  }
+  { path: '', redirectTo: '/tabs/tabs3', pathMatch: 'full' },
 
 ];
 
@@ -32,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PinPageRoutingModule {}
+export class PinPageRoutingModule { }

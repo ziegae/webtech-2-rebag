@@ -26,33 +26,21 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
-    path: 'pin',
-    loadChildren: () => import('./pin/pin.module').then(m => m.PinPageModule)
+    path: 'new-pin',
+    loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
   },
   {
-    path: 'start-page',
-    loadChildren: () => import('./start-page/start-page.module').then(m => m.StartPagePageModule)
+    path: 'onboarding',
+    loadChildren: () =>import('./register/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+  },
+  {
+    path: 'pin',
+    loadChildren: () =>import('./pin/pin.module').then( m => m.PinPageModule)
   },
   {
     path: '',
     redirectTo: '/start-page',
     pathMatch: 'full'
-  },
-  {
-    path: 'new-pin',
-    loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
-  },
-  {
-    path: 'add-image',
-    loadChildren: () => import('./add-image/add-image.module').then(m => m.AddImagePageModule)
-  },
-  /*{
-    path: 'test',
-    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
-  },*/
-  {
-    path: 'reset-availability',
-  loadChildren: () => import('./pin/reset-availability/reset-availability.module').then( m => m.ResetAvailabilityPageModule)
   }
 ];
 @NgModule({

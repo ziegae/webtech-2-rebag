@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Standort-Ideen</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <ion-slides pager>
+      <ion-slide>
+               <div class="slide-con">
+          <img src="../assets/img/tutorial/Rebag-Concept.jpg">
+        </div>
+        <div class="slider-text">
+          <h3 class="light">Bei den Einkaufswägen</h3>
+          <p class="light"> Acht darauf, dass die Befestigung sich jederzeit lösen lässt, sodass es nicht als Sachbeschädigung ausglegt werden kann.</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-con">
+          <img src="../assets/img/tutorial/Rebag-Busstop.jpg">
+        </div>
+        <div class="slider-text">
+          <h3 class="light">Bushaltestelle</h3>
+          <p class="light"> Auch hier sind die Taschen gut überdacht und werden durch Regen nicht beschädigt.</p>  
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-con">
+          <img src="../assets/img/tutorial/Rebag-Vordach.jpg">
+        </div>
+        <div class="slider-text">
+          <h3 class="light">Vordächer</h3>
+          <p class="light"> Vielleicht ist sogar direkt vor deinem Haus eine passende Stelle. Achte aber darauf, die Taschen gut erreichbar sind.</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-con">
+          <img src="../assets/img/tutorial/Rebag-Dog.jpg">
+        </div>
+        <div class="slider-text">
+          <h3 class="light">Werde Kreativ</h3>
+          <p class="light">Nur trocken und gut sichtbar sollte es sein.</p>
+          <ion-button [routerLink]="['/tabs/tab2']">Standort hinzufügen</ion-button>
+          <ion-button fill="outline" [routerLink]="['/tabs/tab1']">Zur Karte</ion-button>
+                  </div>
+            
+      </ion-slide>
+    </ion-slides>
+
+</ion-content>

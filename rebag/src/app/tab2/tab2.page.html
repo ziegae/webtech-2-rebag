@@ -13,6 +13,9 @@
 
 
 <ion-content [fullscreen]="true">
+  <ion-item class="no-border">
+    <ion-button class="rebag-button center" fill="outline" [routerLink]="['./ideas']">Ideen ansehen</ion-button>
+  </ion-item>
 
   <!--Toggle für Standort-->
   <ion-item class="no-border">
@@ -41,10 +44,18 @@
       <ion-input [(ngModel)]="longitude" placeholder="Longitude.."></ion-input>
     </ion-item>
 
+    <!--Foto aufnehmen-->
+    <ion-item class="no-border">
+      <ion-button class="rebag-button" (click)="takePhoto()">Foto aufnehmen</ion-button>
+    </ion-item>
+
+
     <!--Speichern Button-->
     <ion-item class="no-border">
       <ion-button class="rebag-button" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
+
+
   </ion-list>
 
 </ion-content>
