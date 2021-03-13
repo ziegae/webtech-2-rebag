@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { PinPageRoutingModule } from './pin-routing.module';
-
 import { PinPage } from './pin.page';
 
 @NgModule({
@@ -17,4 +14,5 @@ import { PinPage } from './pin.page';
   ],
   declarations: [PinPage]
 })
-export class PinPageModule {}
+
+export class PinPageModule { }

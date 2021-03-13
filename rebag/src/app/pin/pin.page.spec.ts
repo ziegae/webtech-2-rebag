@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { PinPage } from './pin.page';
 
 describe('PinPage', () => {
@@ -9,7 +8,7 @@ describe('PinPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PinPage ],
+      declarations: [PinPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

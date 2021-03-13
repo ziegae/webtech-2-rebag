@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { ChangeLocationPageRoutingModule } from './change-location-routing.module';
-
 import { ChangeLocationPage } from './change-location.page';
 
 @NgModule({
@@ -17,4 +14,5 @@ import { ChangeLocationPage } from './change-location.page';
   ],
   declarations: [ChangeLocationPage]
 })
-export class ChangeLocationPageModule {}
+
+export class ChangeLocationPageModule { }

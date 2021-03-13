@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ChildrenOutletContexts } from '@angular/router';
-
 import { PinPage } from './pin.page';
 
 const routes: Routes = [

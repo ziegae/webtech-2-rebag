@@ -1,19 +1,17 @@
 <ion-header>
   <ion-toolbar>
+    <!--Username anzeigen-->
     <ion-title>Hey {{profileName}}!</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/settings']">
         <ion-icon slot="icon-only" name="cog">
-
         </ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
+<!--Map anzeigen-->
 <ion-content [fullscreen]="true">
   <div #map id="map"></div>
- 
-
 </ion-content>

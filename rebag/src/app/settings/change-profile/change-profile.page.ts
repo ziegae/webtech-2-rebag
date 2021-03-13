@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './change-profile.page.html',
   styleUrls: ['./change-profile.page.scss'],
 })
+
 export class ChangeProfilePage implements OnInit {
 
   constructor() { }

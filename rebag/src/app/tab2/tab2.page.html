@@ -20,14 +20,12 @@
     <ion-toggle slot="end" [(ngModel)]="toggle" (click)="toggleGeo()"></ion-toggle>
   </ion-item>
 
-
   <!--Name-->
   <ion-list class="align-mid">
     <h4>Name des Standortes</h4>
     <ion-item>
       <ion-input [(ngModel)]="name" placeholder="Name.."></ion-input>
     </ion-item>
-
 
     <!--Koordinaten nur anzeigen wenn Toggle-->
     <br *ngIf="isShown">
@@ -45,20 +43,20 @@
 
     <!--Foto aufnehmen-->
     <ion-item class="no-border">
-      <ion-button class="camera-button" (click)="takePhoto()"><ion-icon slot="icon-only" name="camera"></ion-icon>
+      <ion-button class="camera-button" (click)="takePhoto()">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
       </ion-button>
     </ion-item>
 
-
     <!--Speichern Button-->
     <ion-item class="no-border buttons">
-      <ion-button expand="block"  (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
+      <ion-button expand="block" (click)="save()" [routerLink]="['../tab1']">Standort Hinzufügen</ion-button>
     </ion-item>
-
 
     <!--Ideen Button-->
     <ion-item class="no-border buttons">
-      <ion-button style="color: #57b660;" expand="block" fill="outline" [routerLink]="['./ideas']">Ideen ansehen</ion-button>
+      <ion-button style="color: #57b660;" expand="block" fill="outline" [routerLink]="['./ideas']">Ideen ansehen
+      </ion-button>
     </ion-item>
 
   </ion-list>

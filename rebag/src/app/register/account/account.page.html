@@ -6,62 +6,78 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
 
+  <!--Titel und Beschreibung-->
   <div class="headline">
     <h2>Account anlegen</h2>
-    <p>Bitte nenne uns deinen Vornamen und deine E-Mail. Lege bitte anschließend dein Passwort fest und bestätige es.</p>
+    <p>Bitte nenne uns deinen Vornamen und deine E-Mail. Lege bitte anschließend dein Passwort fest und bestätige es.
+    </p>
   </div>
+
   <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
-  <div class="inputs">
-    <!-- Inputfeld für den Namen -->
-    <ion-item>
-      <ion-input type="text" name="name" formControlName="name" placeholder="Vorname" required></ion-input>
-    </ion-item>
+    <div class="inputs">
+      <!-- Inputfeld für den Namen -->
+      <ion-item>
+        <ion-input type="text" name="name" formControlName="name" placeholder="Vorname" required></ion-input>
+      </ion-item>
 
-    <!-- Inputfeld für die E-Mail-Adresse und zugehörige Fehlermeldung-->
-    <ion-item>
-      <ion-input type="email" name="email" formControlName="email" placeholder="E-Mail-Adresse" required></ion-input>
-    </ion-item>
-    <div>
-      <ng-container *ngFor="let validation of validationMessages.email">
-        <div class="error-message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
-          {{validation.message}}
-        </div>
-      </ng-container>
-    </div>
+      <!-- Inputfeld für die E-Mail-Adresse und zugehörige Fehlermeldung-->
+      <ion-item>
+        <ion-input type="email" name="email" formControlName="email" placeholder="E-Mail-Adresse" required></ion-input>
+      </ion-item>
+      <div>
 
-    <!-- Inputfeld für das Passwort und Passwort bestätigen sowie zugehörige Fehlermeldung -->
-    <ion-item>
-      <ion-input type="password" name="password" formControlName="password" placeholder="Passwort" required></ion-input>
-    </ion-item>
-    <div>
-      <ng-container *ngFor="let validation of validationMessages.password">
-        <div class="error-message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched)">
-          {{validation.message}}
+        <!--Fehlermeldung-->
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="error-message"
+            *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Inputfeld für das Passwort und Passwort bestätigen sowie zugehörige Fehlermeldung -->
+      <ion-item>
+        <ion-input type="password" name="password" formControlName="password" placeholder="Passwort" required>
+        </ion-input>
+      </ion-item>
+      <div>
+
+        <!--Fehlermeldung-->
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="error-message"
+            *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-input type="password" name="confirmPassword" formControlName="confirmPassword"
+          placeholder="Passwort bestätigen" required></ion-input>
+      </ion-item>
+
+      <!--Fehlermeldung-->
+      <div class="error-message">
+        <ng-container *ngFor="let validation of validationMessages.confirmPassword">
+          <div class="error-message"
+            *ngIf="validationFormUser.get('confirmPassword').hasError(validation.type) && (validationFormUser.get('confirmPassword').dirty || validationFormUser.get('confirmPassword').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+        <div class="error-message"
+          *ngIf="!validationFormUser.get('confirmPassword').errors && validationFormUser.hasError('passwordNotMatch') && (validationFormUser.get('confirmPassword').dirty || validationFormUser.get('confirmPassword').touched)">
+          Passwörter stimmen nicht überein.
         </div>
-      </ng-container>
-    </div>
-    <ion-item>
-      <ion-input type="password" name="confirmPassword" formControlName="confirmPassword" placeholder="Passwort bestätigen" required></ion-input>
-    </ion-item>
-    <div class="error-message">
-      <ng-container *ngFor="let validation of validationMessages.confirmPassword">
-        <div class="error-message" *ngIf="validationFormUser.get('confirmPassword').hasError(validation.type) && (validationFormUser.get('confirmPassword').dirty || validationFormUser.get('confirmPassword').touched)">
-          {{validation.message}}
-        </div>
-      </ng-container>
-      <div class="error-message" *ngIf="!validationFormUser.get('confirmPassword').errors && validationFormUser.hasError('passwordNotMatch') && (validationFormUser.get('confirmPassword').dirty || validationFormUser.get('confirmPassword').touched)">
-        Passwörter stimmen nicht überein.
       </div>
     </div>
-  </div>
 
-  <!-- Button zur nächsten Seite -->
-  <div class="next-btn">
-    <ion-button type="submit" [disabled]="!validationFormUser.valid">
-      Weiter
-    </ion-button>
-  </div>
-</form>
+    <!-- Button zur nächsten Seite -->
+    <div class="next-btn">
+      <ion-button type="submit" [disabled]="!validationFormUser.valid">
+        Weiter
+      </ion-button>
+    </div>
+  </form>
 </ion-content>

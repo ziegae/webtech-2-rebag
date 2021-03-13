@@ -11,13 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  
+
   profile: any;
   profileName: any;
 
   markers: any = [];
 
-  constructor(private markersService: MarkersService, public authService: AuthService, private database : AngularFirestore) {
+  constructor(private markersService: MarkersService, public authService: AuthService, private database: AngularFirestore) {
     //marker aus service laden
     this.markers = this.markersService.getMarkers();
     this.markersService.getMarkersSubject().subscribe(() => {
@@ -26,6 +26,7 @@ export class Tab3Page {
     });
     console.log("marker werden geladen");
 
+    //Firebase User
     firebase.auth().onAuthStateChanged(user => {
       console.log("AUTH_USER", user);
 
@@ -34,7 +35,7 @@ export class Tab3Page {
         var userprofile = result.valueChanges();
         userprofile.subscribe(profile => {
           console.log("PROFILE::", profile);
-           this.profileName = profile['name'];
+          this.profileName = profile['name'];
         })
       }
     })

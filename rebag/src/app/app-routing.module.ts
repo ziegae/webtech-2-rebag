@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    //canActivate: [AuthGuard]
+    //canActivate: [AuthGuard] //legt fest, dass nur eingeloggte User drauf können
   },
   {
     path: 'register',
@@ -24,10 +24,6 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
-  },
-  {
-    path: 'new-pin',
-    loadChildren: () => import('./new-pin/new-pin.module').then(m => m.NewPinPageModule)
   },
   {
     path: 'onboarding',

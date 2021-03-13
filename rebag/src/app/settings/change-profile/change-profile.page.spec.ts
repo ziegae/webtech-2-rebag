@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { ChangeProfilePage } from './change-profile.page';
 
 describe('ChangeProfilePage', () => {
@@ -9,7 +8,7 @@ describe('ChangeProfilePage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangeProfilePage ],
+      declarations: [ChangeProfilePage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

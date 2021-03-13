@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { OnboardingPage } from './onboarding.page';
 
 describe('OnboardingPage', () => {
@@ -9,7 +8,7 @@ describe('OnboardingPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ OnboardingPage ],
+      declarations: [OnboardingPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

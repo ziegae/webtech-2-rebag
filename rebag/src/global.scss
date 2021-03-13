@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -27,199 +27,195 @@
 
 //Test Ion button zu verändern
 
-
 //--- rebag typography
 
 html {
-    font-family: var(--ion-font-family);
-  }
-  
-  a {
-    background-color: transparent;
-    color: var(--ion-color-primary, #3880ff);
-  }
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 12px;
-    margin-bottom: 2px;
-    margin-left:12px;
-
-    font-weight: 500;
-    line-height: 1.2;
-  }
-  
-p {
-    font-size: 14px;
-    --color: var(ion-color-medium);
+  font-family: var(--ion-font-family);
 }
 
-  h1 {
-   margin-top: 12px;
-  
-   font-size: 24px;
+a {
+  background-color: transparent;
+  color: var(--ion-color-primary, #3880ff);
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 12px;
+  margin-bottom: 2px;
+  margin-left: 12px;
+
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 14px;
+  --color: var(ion-color-medium);
+}
+
+h1 {
+  margin-top: 12px;
+
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0.18000000715255737px;
   text-align: left;
-  
-  }
-  h2 {
-    margin-top: 12px;
-  
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0.15px;
-    
-  }
-  h3 {
-    margin-top: 12px;
-  
+}
+h2 {
+  margin-top: 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+h3 {
+  margin-top: 12px;
+
   font-size: 18px;
   text-align: center;
   letter-spacing: 1.25px;
   text-transform: uppercase;
-  }
-  
-  h4 {
-    margin-top: 18px;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    color: var(--ion-color-medium)
-  }
+}
 
-  h4.center {
-    margin-left:0px;
-    text-align: center;
- 
-  }
-  
-  h5 {
-    font-size: 18px;
-  }
-  
-  h6 {
-    font-size: 16px;
-  }
-  
-  small {
-    font-size: 75%;
-  }
-  
-  sub,
-  sup {
-    position: relative;
-    font-size: 75%;
-    line-height: 0;
-    vertical-align: baseline;
-  }
-  
-  sup {
-    top: -0.5em;
-  }
-  
-  sub {
-    bottom: -0.25em;
-  }
+h4 {
+  margin-top: 18px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--ion-color-medium);
+}
 
-  .label {
-    text-align: center;
-    letter-spacing: 1.25px;
-    font-size: 10px;
-    text-transform: uppercase;
-  }
+h4.center {
+  margin-left: 0px;
+  text-align: center;
+}
 
-  .light{
-    color:var(--ion-color-light);
-    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-  }
+h5 {
+  font-size: 18px;
+}
 
-  .highlight{
-    color: var(--ion-color-primary);
-  }
+h6 {
+  font-size: 16px;
+}
 
-  .body{
-      --font-size:14px;
-      color:var(ion-color-dark);
-  }
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+.label {
+  text-align: center;
+  letter-spacing: 1.25px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.light {
+  color: var(--ion-color-light);
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.highlight {
+  color: var(--ion-color-primary);
+}
+
+.body {
+  --font-size: 14px;
+  color: var(ion-color-dark);
+}
 
 //-----------------------------------------
 
-  .ion-margin  {
-    margin: 16px;
-  }
+.ion-margin {
+  margin: 16px;
+}
 
-  .img-list {
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-    margin-right:12px;
-  }
+.img-list {
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  margin-right: 12px;
+}
 
-  .img-list-view {
-    border-radius: 3%;
-    height: 40px;
-    width: 60px;
-    margin-right:12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+.img-list-view {
+  border-radius: 3%;
+  height: 40px;
+  width: 60px;
+  margin-right: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
-  .no-margin{
-    margin: 0 !important;
-  }
+.no-margin {
+  margin: 0 !important;
+}
 
-  .no-border{
-    margin-top: 10px;
-    border: 0px !important;
-    --border-style: none !important;
-    margin-bottom: 25px;
-  }
+.no-border {
+  margin-top: 10px;
+  border: 0px !important;
+  --border-style: none !important;
+  margin-bottom: 25px;
+}
 
-  .rebag-button{
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 75% !important;
-    font-size: 14px !important;
-    height: 30px !important;
-  }
+.rebag-button {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 75% !important;
+  font-size: 14px !important;
+  height: 30px !important;
+}
 
-  .align-mid{
-    padding-top: 30%;
-  }
+.align-mid {
+  padding-top: 30%;
+}
 
-  .input-notification{
-    border: 1px solid #333333;
-    margin: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
-  }
+.input-notification {
+  border: 1px solid #333333;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
 
-  .center{
-    margin: 0 auto;
-  }
+.center {
+  margin: 0 auto;
+}
 
-  .sc-ion-item-ios-h{
-    --padding-end: 20px !important;
-  }
+.sc-ion-item-ios-h {
+  --padding-end: 20px !important;
+}
 
-.btn{
+.btn {
   position: fixed;
   left: 0;
   bottom: 50px;
   right: 0;
-  --ion-color-primary: #57B660;
+  --ion-color-primary: #57b660;
   padding: 0x 70px 0 70px;
   color: #f2f2f2;
   --color-hover: #f2f2f2;
-  --background-hover: #3C9644;
-  --background-activated: #57B660;
+  --background-hover: #3c9644;
+  --background-activated: #57b660;
 }

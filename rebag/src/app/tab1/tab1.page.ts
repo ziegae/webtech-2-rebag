@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewChild, ElementRef} from '@angular/core';
-import { Plugins} from '@capacitor/core';
+import { ViewChild, ElementRef } from '@angular/core';
+import { Plugins } from '@capacitor/core';
 //pins als Markers bezeichnet, weil es ansonsten zu problemen gekommen ist
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
@@ -23,7 +23,7 @@ export class Tab1Page {
 
   profile: any;
   profileName: any;
-  
+
   map: any;
   latitude: number = 0;
   longitude: number = 0;
@@ -36,7 +36,7 @@ export class Tab1Page {
 
 
   //Marker laden
-  constructor(private markersService: MarkersService, private router: Router, public authService: AuthService, private database : AngularFirestore, public auth: AngularFireAuth) {
+  constructor(private markersService: MarkersService, private router: Router, public authService: AuthService, private database: AngularFirestore, public auth: AngularFireAuth) {
     this.markersService.getMarkersSubject().subscribe(() => {
       this.loadMarkers();
     });
@@ -49,14 +49,13 @@ export class Tab1Page {
         var userprofile = result.valueChanges();
         userprofile.subscribe(profile => {
           console.log("PROFILE::", profile);
-           this.profileName = profile['name'];
+          this.profileName = profile['name'];
         })
       }
     })
   }
 
-
-    //Aktuelle Position finden und Map laden
+  //Aktuelle Position finden und Map laden
   ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
@@ -64,11 +63,9 @@ export class Tab1Page {
     });
 
     this.showMap();
-    }
+  }
 
-
-  ionViewDidEnter() {}
-
+  ionViewDidEnter() { }
 
   //Generate Map
   showMap() {
@@ -350,7 +347,6 @@ export class Tab1Page {
     this.loadMarkers();
   }
 
-
   //Load Markers from JSON
   loadMarkers() {
 
@@ -360,7 +356,6 @@ export class Tab1Page {
     }
 
     this.markers.length = 0;
-
 
     //JSON durchlaufen
     for (let i = 0; i < this.markersService.getMarkers().length; i++) {

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { ChangeLocationPage } from './change-location.page';
 
 describe('ChangeLocationPage', () => {
@@ -9,7 +8,7 @@ describe('ChangeLocationPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangeLocationPage ],
+      declarations: [ChangeLocationPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -4,14 +4,16 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>onboarding</ion-title>
-
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
-
-
+  <!--Slides-->
   <ion-slides pager>
+
+    <!--Slide 1-->
     <ion-slide style="background: url('/assets/img/Rebag-Happy.jpg') no-repeat center center / cover !important;">
       <div class="slide-con">
       </div>
@@ -24,7 +26,10 @@
         <p class="label light" [routerLink]="['']">Intro überspringen</p>
       </div>
     </ion-slide>
-    <ion-slide style="background: url('/assets/img/onboarding/Rebag-Planet.jpg') no-repeat center center / cover !important;">
+
+    <!--Slide 2-->
+    <ion-slide
+      style="background: url('/assets/img/onboarding/Rebag-Planet.jpg') no-repeat center center / cover !important;">
       <div class="slide-con">
       </div>
       <div class="slider-text">
@@ -35,7 +40,10 @@
         <p class="label light" [routerLink]="['']">Intro überspringen</p>
       </div>
     </ion-slide>
-    <ion-slide style="background: url('/assets/img/onboarding/Rebag-Concept.jpg') no-repeat center center / cover !important;">
+
+    <!--Slide 3-->
+    <ion-slide
+      style="background: url('/assets/img/onboarding/Rebag-Concept.jpg') no-repeat center center / cover !important;">
       <div class="slide-con">
       </div>
       <div class="slider-text">
@@ -47,7 +55,10 @@
         <p class="label light" [routerLink]="['']">Intro überspringen</p>
       </div>
     </ion-slide>
-    <ion-slide style="background: url('/assets/img/onboarding/Rebag-Concept-2-2.jpg') no-repeat center center / cover !important;">
+
+    <!--Slide 4-->
+    <ion-slide
+      style="background: url('/assets/img/onboarding/Rebag-Concept-2-2.jpg') no-repeat center center / cover !important;">
       <div class="slide-con">
       </div>
       <div class="slider-text">
@@ -58,16 +69,23 @@
         <p class="label light" [routerLink]="['']">Intro überspringen</p>
       </div>
     </ion-slide>
-    <ion-slide style="background: url('/assets/img/onboarding/Rebag-Washing.jpg') no-repeat center center / cover !important;">
+
+    <!--Slide 5-->
+    <ion-slide
+      style="background: url('/assets/img/onboarding/Rebag-Washing.jpg') no-repeat center center / cover !important;">
       <div class="slide-con">
       </div>
       <div class="slider-text">
         <h3 class="light">Hygiene</h3>
         <p class="light">Wasche dreckige Taschen und sorge dafür, das an den Standorten alles rund läuft. HYGIENE wird
-          bei uns groß geschrieben.</p><br></div>
+          bei uns groß geschrieben.</p><br>
+      </div>
+
+      <!--Buttons-->
       <div class="align-bottom buttons">
         <ion-button expand="block" class="ion-margin" [routerLink]="['/register']">Jetzt loslegen</ion-button>
-          <ion-button expand="block" class="ion-margin" fill="outline" [routerLink]="['']">Zurück zur Startseite</ion-button>
+        <ion-button expand="block" class="ion-margin" fill="outline" [routerLink]="['']">Zurück zur Startseite
+        </ion-button>
       </div>
 
     </ion-slide>

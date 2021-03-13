@@ -5,7 +5,7 @@
     </ion-buttons>
     <!--Pin Name laden-->
     <ion-title>{{loadedPin.name}}</ion-title>
-   </ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -13,7 +13,7 @@
 <ion-content>
   <!--Image laden-->
   <div class="img-container">
-    <img class="ion-no-padding img-overview" src="{{'data:image/jpg;base64,' + loadedPin.imageBase64}}"/>
+    <img class="ion-no-padding img-overview" src="{{'data:image/jpg;base64,' + loadedPin.imageBase64}}" />
   </div>
 
   <!--Pin Name-->
@@ -32,7 +32,7 @@
   </ion-text>
 
   <!--Status Verfügbarkeit-->
-  <ion-item  (click)="resetAvailabilityModal(); setOverviewPinId()">
+  <ion-item (click)="resetAvailabilityModal(); setOverviewPinId()">
 
     <!--Pin Status Image-->
     <img class="img-list" src="../assets/img/pinstatus/{{imgSrcBagsAvailable}}">
@@ -61,6 +61,7 @@
     <ion-text>
       {{txtBagsClean}}
     </ion-text>
+
   </ion-item>
 
 </ion-content>

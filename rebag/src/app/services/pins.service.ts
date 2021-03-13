@@ -12,7 +12,7 @@ export class MarkersService {
 
   overviewPinId: any;
 
-
+  //Daten aus Json oder local storage
   constructor(private http: HttpClient) {
     if (localStorage.getItem('markers')) {
       this.markers = JSON.parse(localStorage.getItem('markers'));
@@ -35,14 +35,14 @@ export class MarkersService {
     return this.markers;
   }
 
+  //marker hinzufügen
   add(marker) {
     this.markers.push(marker);
     this.markersSubject.next();
     localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
-
-
+  //pinID übergeben
   getPinId(pinId: string) {
     return {
       ...this.markers.find(pin => {
@@ -51,24 +51,25 @@ export class MarkersService {
     };
   }
 
+  //pinId setzen
   setOverviewPinId(loadedPin: any) {
     this.overviewPinId = loadedPin;
   }
 
-
-
+  //Verfügbarkeit zurücksetzen
   resetAvailability() {
     this.overviewPinId.availabilityReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
   }
 
+  //Sauberkeit zurücksetzen
   resetClean() {
     this.overviewPinId.cleaningReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
   }
 
-
-  getMarkerslength(){
+  //Array länge
+  getMarkerslength() {
     return this.markers.length;
   }
 

@@ -18,7 +18,7 @@ export class Tab2Page implements OnInit {
 
   profile: any;
   profileName: any;
-  
+
   pinId: string = '';
   name: string = '';
   latitude: number = 0;
@@ -28,9 +28,10 @@ export class Tab2Page implements OnInit {
   imageBase64: any = null;
   toggle: boolean = true;
   isShown = false;
-  imageTook= false;
+  imageTook = false;
 
-  constructor(private markersService: MarkersService, public modalController: ModalController, public authService: AuthService, private database : AngularFirestore) {
+  //Lade Firebase, MarkerService Modal
+  constructor(private markersService: MarkersService, public modalController: ModalController, public authService: AuthService, private database: AngularFirestore) {
     firebase.auth().onAuthStateChanged(user => {
       console.log("AUTH_USER", user);
 
@@ -39,7 +40,7 @@ export class Tab2Page implements OnInit {
         var userprofile = result.valueChanges();
         userprofile.subscribe(profile => {
           console.log("PROFILE::", profile);
-           this.profileName = profile['name'];
+          this.profileName = profile['name'];
         })
       }
     })
@@ -66,7 +67,7 @@ export class Tab2Page implements OnInit {
       resultType: CameraResultType.Base64
     });
     this.imageBase64 = image.base64String;
-    this.imageTook=true;
+    this.imageTook = true;
     console.log("bild aufgenommen")
   }
 
