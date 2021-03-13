@@ -15,8 +15,8 @@ export class AccountPage implements OnInit {
 
   //Messages
   validationMessages = {
-    username: [
-      { type: "required", message: "Bitte gebe deine E-Mail ein." }
+    username:[
+      {type:"required", message:"Bitte gebe einen Namen ein."}
     ],
     email: [
       { type: "required", message: "Bitte gebe deine E-Mail ein." },
@@ -55,7 +55,7 @@ export class AccountPage implements OnInit {
       ])),
       email: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,

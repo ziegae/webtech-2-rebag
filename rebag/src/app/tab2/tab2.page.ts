@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { MarkersService } from '../services/pins.service';
 import { Plugins, CameraResultType } from '@capacitor/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -19,6 +18,7 @@ export class Tab2Page implements OnInit {
   profile: any;
   profileName: any;
 
+  // Platzhalter für den Neuen Marker
   pinId: string = '';
   name: string = '';
   latitude: number = 0;
@@ -26,12 +26,14 @@ export class Tab2Page implements OnInit {
   availabilityReport: number = 0;
   cleaningReport: number = 0;
   imageBase64: any = null;
+
+  // weitere
   toggle: boolean = true;
   isShown = false;
   imageTook = false;
 
-  //Lade Firebase, MarkerService Modal
-  constructor(private markersService: MarkersService, public modalController: ModalController, public authService: AuthService, private database: AngularFirestore) {
+  //Lade Firebase, MarkerService
+  constructor(private markersService: MarkersService, public authService: AuthService, private database: AngularFirestore) {
     firebase.auth().onAuthStateChanged(user => {
       console.log("AUTH_USER", user);
 
@@ -81,14 +83,15 @@ export class Tab2Page implements OnInit {
       'cleaningReport': this.cleaningReport,
       'imageBase64': this.imageBase64
     };
+    //console.log(JSON.stringify(marker));
+
     this.markersService.add(marker);
-    console.log("pin hinzugefügt");
     this.pinId = '';
     this.name = '';
     this.latitude = 0;
     this.longitude = 0;
     this.availabilityReport = 0;
-    this.cleaningReport = 0
+    this.cleaningReport = 0;
     this.imageBase64 = '';
 
     this.toggle = true;

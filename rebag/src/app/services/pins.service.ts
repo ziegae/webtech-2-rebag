@@ -60,12 +60,14 @@ export class MarkersService {
   resetAvailability() {
     this.overviewPinId.availabilityReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
+    localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
   //Sauberkeit zurücksetzen
   resetClean() {
     this.overviewPinId.cleaningReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
+    localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
   //Array länge
