@@ -74,6 +74,9 @@ export class MarkersService {
   }
 
 
+  getMarkerslength(){
+    return this.markers.length;
+  }
 
 
 }

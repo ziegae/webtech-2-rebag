@@ -21,8 +21,6 @@ export class Tab2Page implements OnInit {
   // Platzhalter für den Neuen Marker
   pinId: string = '';
   name: string = '';
-  bagsAvailable: boolean = true;
-  bagsClean: boolean = true;
   latitude: number = 0;
   longitude: number = 0;
   availabilityReport: number = 0;
@@ -76,10 +74,8 @@ export class Tab2Page implements OnInit {
   //Standort speichern
   save() {
     const marker = {
-      'pinId': this.markersService.getMarkerslength() + 1,
+      'pinId': JSON.stringify(this.markersService.getMarkerslength() + 1),
       'name': this.name,
-      'basAvailable': this.bagsAvailable,
-      'bagsClean': this.bagsClean,
       'coordinates': [this.latitude, this.longitude],
       'availabilityReport': this.availabilityReport,
       'cleaningReport': this.cleaningReport,
@@ -88,12 +84,8 @@ export class Tab2Page implements OnInit {
     //console.log(JSON.stringify(marker));
 
     this.markersService.add(marker);
-
-  //  zurücksetzen der Eingabewerte
-    this.pinId =  '';
+    this.pinId = '';
     this.name = '';
-    this.bagsAvailable = true;
-    this.bagsClean = true;
     this.latitude = 0;
     this.longitude = 0;
     this.availabilityReport = 0;
