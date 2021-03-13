@@ -12,7 +12,7 @@ import {AngularFireAuth} from '@angular/fire/auth'
 export class AccountPage implements OnInit {
   validationMessages = {
     username:[
-      {type:"required", message:"Bitte gebe deine E-Mail ein."}
+      {type:"required", message:"Bitte gebe einen Namen ein."}
     ],
     email:[
       {type:"required", message:"Bitte gebe deine E-Mail ein."},
@@ -50,7 +50,7 @@ export class AccountPage implements OnInit {
       ])),
       email: new FormControl ('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl ('', Validators.compose([
         Validators.required,
@@ -108,9 +108,6 @@ export class AccountPage implements OnInit {
       })
        await loading.present();
     }
-  
-  
-  
   
     async showalert(){
    var load = await this.loadingCtrl.create({

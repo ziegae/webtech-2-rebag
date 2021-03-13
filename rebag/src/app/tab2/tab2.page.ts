@@ -14,11 +14,11 @@ const { Geolocation } = Plugins;
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-// Platzhalter für den Neuen Marker
 
   profile: any;
   profileName: any;
-  
+
+  // Platzhalter für den Neuen Marker
   pinId: string = '';
   name: string = '';
   bagsAvailable: boolean = true;

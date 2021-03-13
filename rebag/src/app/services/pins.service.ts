@@ -64,11 +64,13 @@ export class MarkersService {
   resetAvailability() {
     this.overviewPinId.availabilityReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
+    localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
   resetClean() {
     this.overviewPinId.cleaningReport = 0;
     this.markers[this.overviewPinId.pinId - 1] = this.overviewPinId;
+    localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
 
