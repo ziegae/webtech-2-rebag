@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { MarkersService } from '../services/pins.service';
 import { Plugins, CameraResultType } from '@capacitor/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import firebase from 'firebase/app';
+import { AuthService } from 'src/app/services/auth.service';
 const { Camera } = Plugins;
 const { Geolocation } = Plugins;
 
@@ -12,6 +15,10 @@ const { Geolocation } = Plugins;
 })
 export class Tab2Page implements OnInit {
 // Platzhalter für den Neuen Marker
+
+  profile: any;
+  profileName: any;
+  
   pinId: string = '';
   name: string = '';
   bagsAvailable: boolean = true;
@@ -27,8 +34,19 @@ export class Tab2Page implements OnInit {
   isShown = false;
   imageTook= false;
 
-  constructor(private markersService: MarkersService, public modalController: ModalController) {
+  constructor(private markersService: MarkersService, public authService: AuthService, private database : AngularFirestore) {
+    firebase.auth().onAuthStateChanged(user => {
+      console.log("AUTH_USER", user);
 
+      if (user) {
+        const result = this.database.doc(`/profile/${this.authService.getUID()}`);
+        var userprofile = result.valueChanges();
+        userprofile.subscribe(profile => {
+          console.log("PROFILE::", profile);
+           this.profileName = profile['name'];
+        })
+      }
+    })
   }
 
   ngOnInit() { }
