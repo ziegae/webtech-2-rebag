@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { ResetAvailabilityPage } from './reset-availability.page';
 
 describe('ResetAvailabilityPage', () => {
@@ -9,7 +8,7 @@ describe('ResetAvailabilityPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResetAvailabilityPage ],
+      declarations: [ResetAvailabilityPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

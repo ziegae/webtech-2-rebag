@@ -4,12 +4,16 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertController, NavController, LoadingController, ToastController } from '@ionic/angular'
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth'
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
+
 export class AccountPage implements OnInit {
+
+  //Messages
   validationMessages = {
     name: [
       { type: "required", message: "Bitte gebe deinen Vornamen ein." }
@@ -42,7 +46,7 @@ export class AccountPage implements OnInit {
     this.loading = this.loadingCtrl
   }
 
-
+  //Lade Validationseigenschaften
   ngOnInit() {
     this.validationFormUser = this.formbuilder.group({
       name: new FormControl('', Validators.compose([
@@ -50,7 +54,7 @@ export class AccountPage implements OnInit {
       ])),
       email: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
@@ -65,12 +69,14 @@ export class AccountPage implements OnInit {
     })
   }
 
+  //Password
   password(formGroup: FormGroup) {
     const { value: password } = formGroup.get('password');
     const { value: confirmPassword } = formGroup.get('confirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 
+  //User registrieren
   registerUser(value) {
     this.showalert();
     try {
@@ -96,6 +102,7 @@ export class AccountPage implements OnInit {
     }
   }
 
+  //error
   async errorLoading(message: any) {
     const loading = await this.alertCtrl.create({
       header: "Error Registering",
@@ -110,6 +117,7 @@ export class AccountPage implements OnInit {
     await loading.present();
   }
 
+  //Zeige Mitteilung
   async showalert() {
     var load = await this.loadingCtrl.create({
       message: "Bitte warten...",
@@ -118,6 +126,7 @@ export class AccountPage implements OnInit {
     load.present();
   }
 
+  //Status
   async toast(message, status) {
     const toast = await this.toaster.create({
       message: message,

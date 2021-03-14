@@ -8,6 +8,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
   templateUrl: './forgot-password.page.html',
   styleUrls: ['./forgot-password.page.scss'],
 })
+
 export class ForgotPasswordPage implements OnInit {
 
   email: string;
@@ -17,6 +18,7 @@ export class ForgotPasswordPage implements OnInit {
   ngOnInit() {
   }
 
+  //Reset Password
   async resetPassword() {
     if (this.email) {
       const loading = await this.loadingCtrl.create({
@@ -40,6 +42,7 @@ export class ForgotPasswordPage implements OnInit {
     }
   }
 
+  //Status & Message
   async toast(message, status) {
     const toast = await this.toaster.create({
       message: message,

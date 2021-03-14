@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'ideas',
-    loadChildren: () => import('./ideas/ideas.module').then( m => m.IdeasPageModule)
+    loadChildren: () => import('./ideas/ideas.module').then(m => m.IdeasPageModule)
   }
 ];
 
@@ -17,4 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class Tab2PageRoutingModule {}
+
+export class Tab2PageRoutingModule { }

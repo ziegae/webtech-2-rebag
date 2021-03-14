@@ -10,8 +10,11 @@ import { NavController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
 export class LoginPage implements OnInit {
 
+  //Validation Message
   validationUserMessage = {
     email: [
       { type: "required", message: "Bitte gebe deine E-Mail ein." },
@@ -27,11 +30,12 @@ export class LoginPage implements OnInit {
 
   constructor(public formbuilder: FormBuilder, public authservice: AuthService, public router: Router, private firestore: AngularFirestore, private navCtrl: NavController) { }
 
+  //NgOnInIt
   ngOnInit() {
     this.validationFormUser = this.formbuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.pattern('^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
@@ -40,6 +44,7 @@ export class LoginPage implements OnInit {
     })
   }
 
+  //Login Firebase
   loginUser(value) {
     console.log("Am logged in");
     try {
@@ -60,18 +65,14 @@ export class LoginPage implements OnInit {
             if (result.exists) {
               this.navCtrl.navigateForward(['tabs/tab1']);
             } else {
-
               this.firestore.doc(`profile/${this.authservice.getUID()}`).set({
                 name: resp.user.displayName,
                 email: resp.user.email
               });
-
               this.authservice.loginVerificationCheck();
             }
           })
         }
-
-
       })
     } catch (err) {
       console.log(err);

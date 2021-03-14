@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { ResetCleanPage } from './reset-clean.page';
 
 describe('ResetCleanPage', () => {
@@ -9,7 +8,7 @@ describe('ResetCleanPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResetCleanPage ],
+      declarations: [ResetCleanPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

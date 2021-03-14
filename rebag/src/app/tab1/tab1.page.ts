@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewChild, ElementRef} from '@angular/core';
-import { Plugins} from '@capacitor/core';
+import { ViewChild, ElementRef } from '@angular/core';
+import { Plugins } from '@capacitor/core';
 //pins als Markers bezeichnet, weil es ansonsten zu problemen gekommen ist
 import { MarkersService } from '../services/pins.service';
 const { Geolocation } = Plugins;
@@ -23,7 +23,7 @@ export class Tab1Page {
 
   profile: any;
   profileName: any;
-  
+
   map: any;
   latitude: number = 0;
   longitude: number = 0;
@@ -36,7 +36,7 @@ export class Tab1Page {
 
 
   //Marker laden
-  constructor(private markersService: MarkersService, private router: Router, public authService: AuthService, private database : AngularFirestore, public auth: AngularFireAuth) {
+  constructor(private markersService: MarkersService, private router: Router, public authService: AuthService, private database: AngularFirestore, public auth: AngularFireAuth) {
     this.markersService.getMarkersSubject().subscribe(() => {
       this.loadMarkers();
     });
@@ -49,14 +49,13 @@ export class Tab1Page {
         var userprofile = result.valueChanges();
         userprofile.subscribe(profile => {
           console.log("PROFILE::", profile);
-           this.profileName = profile['name'];
+          this.profileName = profile['name'];
         })
       }
     })
   }
 
-
-    //Aktuelle Position finden und Map laden
+  //Aktuelle Position finden und Map laden
   ionViewWillEnter() {
     const coordinates = Geolocation.getCurrentPosition().then((pos) => {
       this.latitude = pos.coords.latitude;
@@ -64,11 +63,9 @@ export class Tab1Page {
     });
 
     this.showMap();
-    }
+  }
 
-
-  ionViewDidEnter() {}
-
+  ionViewDidEnter() { }
 
   //Generate Map
   showMap() {
@@ -76,36 +73,113 @@ export class Tab1Page {
     //Map Style laden
     const styledMapType = new google.maps.StyledMapType([
       {
-        "featureType": "administrative.land_parcel",
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
         "stylers": [
           {
-            "visibility": "on"
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.country",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          },
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.locality",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.neighborhood",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.neighborhood",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.province",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.province",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
           }
         ]
       },
       {
         "featureType": "landscape",
-        "elementType": "labels.text.fill",
+        "elementType": "labels",
         "stylers": [
           {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.man_made",
-        "stylers": [
-          {
-            "weight": 1.5
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "weight": 1
+            "visibility": "off"
           }
         ]
       },
@@ -114,10 +188,34 @@ export class Tab1Page {
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "visibility": "on"
+            "color": "#f2f2f2"
           },
           {
-            "weight": 2
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#aaaaaa"
+          },
+          {
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "color": "#333333"
+          },
+          {
+            "visibility": "off"
           }
         ]
       },
@@ -126,7 +224,19 @@ export class Tab1Page {
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "color": "#f2f2f2"
+            "color": "#ebebeb"
+          },
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "visibility": "on"
           }
         ]
       },
@@ -135,27 +245,34 @@ export class Tab1Page {
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "color": "#f2f2f2"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.natural.terrain",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffeb3b"
-          },
-          {
-            "visibility": "off"
+            "visibility": "on"
           }
         ]
       },
       {
         "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#c0c0c0"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels",
         "stylers": [
           {
             "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#d6d6d6"
           }
         ]
       },
@@ -164,13 +281,22 @@ export class Tab1Page {
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "color": "#606060"
+            "color": "#929292"
           }
         ]
       },
       {
         "featureType": "road.highway",
         "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#929292"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "labels",
         "stylers": [
           {
             "visibility": "off"
@@ -187,16 +313,6 @@ export class Tab1Page {
       },
       {
         "featureType": "water",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#333333"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
         "stylers": [
           {
             "color": "#ffffff"
@@ -211,7 +327,7 @@ export class Tab1Page {
     navigator.geolocation.getCurrentPosition((pos) => {
       const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       this.map.setCenter(latLng);
-      this.map.setZoom(16);
+      this.map.setZoom(18);
     });
 
     //Map Style festlegen
@@ -231,7 +347,6 @@ export class Tab1Page {
     this.loadMarkers();
   }
 
-
   //Load Markers from JSON
   loadMarkers() {
 
@@ -241,7 +356,6 @@ export class Tab1Page {
     }
 
     this.markers.length = 0;
-
 
     //JSON durchlaufen
     for (let i = 0; i < this.markersService.getMarkers().length; i++) {

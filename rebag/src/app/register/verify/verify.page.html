@@ -6,14 +6,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <!--Headline und Beschreibung-->
   <div class="headline">
     <h2>Verifizierung</h2>
-    <p>Fast geschafft! Wir haben dir einen Link zur Bestätigung deiner E-Mail gesendet. Bitte überprüfe dein E-Mail-Postfach inkl. Spam-Ordner.</p>
+    <p>Fast geschafft! Wir haben dir einen Link zur Bestätigung deiner E-Mail gesendet. Bitte überprüfe dein
+      E-Mail-Postfach inkl. Spam-Ordner.</p>
     <p>Sollest du keine Mail erhalten haben, dann klicke bitte auf den folgenden Button:</p>
   </div>
 
+  <!--Nochmal Senden Button-->
   <div class="resend-btn">
     <ion-button (click)="resendVerificationMail()" [disabled]="!timer">
       Nochmal senden
@@ -24,6 +27,7 @@
     <p>Warte bitte {{ timeLeft }} Sekunden, um erneut eine Bestätigungsmail rausschicken zu können.</p>
   </div>
 
+  <!--Weiter Button-->
   <div class="next-btn">
     <ion-button routerLink="/login">
       Weiter

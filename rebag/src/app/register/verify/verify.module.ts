@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { VerifyPageRoutingModule } from './verify-routing.module';
-
 import { VerifyPage } from './verify.page';
-
-import {GoogleMapsModule} from '@angular/google-maps';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   imports: [
@@ -19,4 +15,5 @@ import {GoogleMapsModule} from '@angular/google-maps';
   ],
   declarations: [VerifyPage]
 })
-export class VerifyPageModule {}
+
+export class VerifyPageModule { }

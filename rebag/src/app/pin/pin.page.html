@@ -1,16 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pin</ion-title>
+    <ion-title>Pin</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!--Klassen je nach Status anzeigen-->
 <ion-content>
-    <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
-      <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood" ></div>
-      <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable" ></div>
-      <div *ngIf="!marker.bagsAvailable && marker.bagsClean" class="bagsUnavailable" ></div>
-       <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean" ></div>
-            {{marker.name}}
-    </ion-item>
-  </ion-content>
-
+  <ion-item *ngFor="let marker of markers" [routerLink]="['/pin', marker.pinId]">
+    <div *ngIf="marker.bagsAvailable && marker.bagsClean" class="allgood"></div>
+    <div *ngIf="!marker.bagsAvailable && !marker.bagsClean" class="bagsUnavailable"></div>
+    <div *ngIf="!marker.bagsAvailable && marker.bagsClean" class="bagsUnavailable"></div>
+    <div *ngIf="marker.bagsAvailable && !marker.bagsClean" class="bagsUnclean"></div>
+    {{marker.name}}
+  </ion-item>
+</ion-content>

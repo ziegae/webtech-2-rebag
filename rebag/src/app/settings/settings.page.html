@@ -40,19 +40,19 @@
   </ion-text>
 
   <!--Verweise auf die Subpages-->
-  <ion-item [routerLink]="['change-profile']">
+  <ion-item class="ion-no-padding" [routerLink]="[]">
     <ion-text>
       <p>Profildaten ändern</p>
     </ion-text>
   </ion-item>
 
-  <ion-item [routerLink]="['change-location']">
+  <ion-item class="ion-no-padding" [routerLink]="['change-location']">
     <ion-text>
       <p>Standortzugriff</p>
     </ion-text>
   </ion-item>
 
-  <ion-item [routerLink]="['push-notifications']">
+  <ion-item class="ion-no-padding" [routerLink]="['push-notifications']">
     <ion-text>
       <p>Pushbenachrichtigungen</p>
     </ion-text>
@@ -67,19 +67,19 @@
 
 
   <!--Weitere Verweise auf die Subpages-->
-  <ion-item [routerLink]="['privacy']">
+  <ion-item class="ion-no-padding" [routerLink]="['privacy']">
     <ion-text>
       <p>Über die App</p>
     </ion-text>
   </ion-item>
 
-  <ion-item [routerLink]="[]">
+  <ion-item class="ion-no-padding" [routerLink]="[]">
     <ion-text>
       <p>Mehr Informationen im Web</p>
     </ion-text>
   </ion-item>
 
-  <ion-item [routerLink]="[]" (click)="logoutAlert()">
+  <ion-item class="ion-no-padding" [routerLink]="[]" (click)="logoutAlert()">
     <ion-text>
       <p style="color: red">Ausloggen</p>
     </ion-text>

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { PrivacyPolicyPage } from './privacy-policy.page';
 
 describe('PrivacyPolicyPage', () => {
@@ -9,7 +8,7 @@ describe('PrivacyPolicyPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrivacyPolicyPage ],
+      declarations: [PrivacyPolicyPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

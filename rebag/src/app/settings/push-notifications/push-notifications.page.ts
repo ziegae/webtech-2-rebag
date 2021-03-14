@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './push-notifications.page.html',
   styleUrls: ['./push-notifications.page.scss'],
 })
+
 export class PushNotificationsPage implements OnInit {
 
   constructor() { }

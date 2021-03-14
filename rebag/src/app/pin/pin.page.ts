@@ -7,6 +7,7 @@ import { MarkersService } from '../services/pins.service';
   templateUrl: './pin.page.html',
   styleUrls: ['./pin.page.scss'],
 })
+
 export class PinPage implements OnInit {
 
   markers: any = [];
@@ -18,10 +19,10 @@ export class PinPage implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
 
-  statusBag(){
-    }
-  
+  statusBag() {
+  }
+
 }

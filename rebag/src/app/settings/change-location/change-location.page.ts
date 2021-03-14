@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './change-location.page.html',
   styleUrls: ['./change-location.page.scss'],
 })
+
 export class ChangeLocationPage implements OnInit {
 
   toggleLocation: boolean = true;

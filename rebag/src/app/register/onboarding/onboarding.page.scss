@@ -3,7 +3,6 @@ ion-slides {
     background-color: rgb(62, 62, 62);
   }
  
-
   .slide-con{
   display: block;
    width:100%;
@@ -13,8 +12,34 @@ ion-slides {
 
   .slider-text{
     position: absolute;
-    bottom: 15%;
+    top: 10%;
   }
 
+  h3 {
+    font-weight: 900;
+    padding: 0 30px 10px 30px;
+    text-align: center !important;
+  }
 
+  p{
+    margin-top: -5px;
+    font-weight: 600;
+    padding: 0 10px 0 10px;
+  }
 
+  ion-toolbar {
+    display: none;
+  }
+
+  .align-bottom{
+    position: absolute;
+    bottom: 5%;
+  }
+
+  .buttons {
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    --ion-color-primary: #57B660;
+    padding: 0 10px 0 10px;
+}

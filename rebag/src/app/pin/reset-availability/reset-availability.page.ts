@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './reset-availability.page.html',
   styleUrls: ['./reset-availability.page.scss'],
 })
+
 export class ResetAvailabilityPage implements OnInit {
 
   constructor(
@@ -18,11 +19,13 @@ export class ResetAvailabilityPage implements OnInit {
   ngOnInit() {
   }
 
+  //Verfügbarkeit zurücksetzen
   resetAvailability() {
     this.markersService.resetAvailability();
     this.modalController.dismiss();
   }
 
+  //Modal ausblenden
   dismiss() {
     this.modalController.dismiss();
   }

@@ -1,18 +1,65 @@
 ion-slides {
-    height: 100%;
-    background-color: rgb(62, 62, 62);
-  }
-   .slide-con{
+  height: 100%;
+  background-color: rgb(62, 62, 62);
+}
+.slide-con {
   display: block;
-   width:100%;
-   height: 100%;
-   overflow: hidden;
- }
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-  .slider-text{
-    position: absolute;
-    bottom: 15%;
-  }
+.slider-text {
+  position: absolute;
+  top: 10%;
+}
 
+ion-header {
+  position: absolute;
+}
 
+ion-toolbar {
+  --ion-background-color: transparent !important;
+  --opacity: 0 !important;
+}
 
+ion-content {
+  --ion-background-color: #f2f2f2;
+}
+
+ion-icon {
+  font-size: 20px !important;
+  margin-right: 10px !important;
+}
+
+ion-title {
+  display: none;
+}
+
+ion-back-button {
+  color: #57b660;
+}
+
+h3 {
+  font-weight: 900;
+  padding: 0 30px 10px 30px;
+  text-align: center !important;
+}
+
+p {
+  margin-top: -5px;
+  font-weight: 600;
+  padding: 0 30px 0 30px;
+}
+
+.align-bottom {
+  position: absolute;
+  bottom: 5%;
+}
+
+.buttons {
+  bottom: 30px;
+  --ion-color-primary: #57b660;
+  padding: 0 30px 0 30px;
+  width: 80% !important;
+}

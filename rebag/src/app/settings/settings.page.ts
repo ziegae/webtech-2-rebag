@@ -10,13 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
 })
+
 export class SettingsPage implements OnInit {
 
   profile: any;
   profileName: any;
   profileEmail: any;
 
-  constructor(private alertCtrl: AlertController, public authService: AuthService, private database : AngularFirestore) {
+  //Firebase Name und Email
+  constructor(private alertCtrl: AlertController, public authService: AuthService, private database: AngularFirestore) {
     firebase.auth().onAuthStateChanged(user => {
       console.log("AUTH_USER", user);
 
@@ -25,27 +27,26 @@ export class SettingsPage implements OnInit {
         var userprofile = result.valueChanges();
         userprofile.subscribe(profile => {
           console.log("PROFILE::", profile);
-           this.profileName = profile['name'];
-           this.profileEmail = profile['email'];
+          this.profileName = profile['name'];
+          this.profileEmail = profile['email'];
         })
       }
     })
-   }
-
-  ngOnInit() {
-
-    
   }
 
-  async logoutAlert(){
+  ngOnInit() {
+  }
+
+  //Logout
+  async logoutAlert() {
     await this.alertCtrl.create({
       header: "Ausloggen",
       //subHeader: "Bist du dir sicher, dass du dich ausloggen möchtest?",
-      message:"Bist du dir sicher, dass du dich ausloggen möchtest?",
+      message: "Bist du dir sicher, dass du dich ausloggen möchtest?",
       buttons: [{
         text: "Abbrechen"
-      }, 
-      { 
+      },
+      {
         text: "Ausloggen", handler: (res) => {
           this.authService.signOut();
         }

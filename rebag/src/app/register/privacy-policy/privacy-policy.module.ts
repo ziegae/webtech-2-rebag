@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { PrivacyPolicyPageRoutingModule } from './privacy-policy-routing.module';
-
 import { PrivacyPolicyPage } from './privacy-policy.page';
 
 @NgModule({
@@ -17,4 +14,5 @@ import { PrivacyPolicyPage } from './privacy-policy.page';
   ],
   declarations: [PrivacyPolicyPage]
 })
-export class PrivacyPolicyPageModule {}
+
+export class PrivacyPolicyPageModule { }
