@@ -84,7 +84,7 @@ export class OverviewPage implements OnInit {
 
   //gibt das Objekt, das loadedPin zugewiesen ist an den service weiter, um den Wert in dem array markers entsprechend ändern zu können.
   setOverviewPinId() {
-    this.markersService.setOverviewPinId(this.loadedPin);
+    this.markersService.setOverviewPin(this.loadedPin);
   }
 
 

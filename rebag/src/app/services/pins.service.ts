@@ -52,7 +52,7 @@ export class MarkersService {
   }
 
   //pinId setzen
-  setOverviewPinId(loadedPin: any) {
+  setOverviewPin(loadedPin: any) {
     this.overviewPinId = loadedPin;
   }
 
