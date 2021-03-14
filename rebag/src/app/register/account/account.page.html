@@ -14,10 +14,17 @@
   </div>
   <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
   <div class="inputs">
-    <!-- Inputfeld für den Namen -->
+    <!-- Inputfeld für den Namen und zugehörige Fehlermeldung-->
     <ion-item>
       <ion-input type="text" name="name" formControlName="name" placeholder="Vorname" required></ion-input>
     </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of validationMessages.name">
+        <div class="error-message" *ngIf="validationFormUser.get('name').hasError(validation.type) && (validationFormUser.get('name').dirty || validationFormUser.get('name').touched)">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
 
     <!-- Inputfeld für die E-Mail-Adresse und zugehörige Fehlermeldung-->
     <ion-item>

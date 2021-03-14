@@ -17,30 +17,30 @@ export class ForgotPasswordPage implements OnInit {
   ngOnInit() {
   }
 
-  async resetPassword(){
-    if(this.email){
-    const loading = await this.loadingCtrl.create({
-      message: 'Bitte warten...',
-      spinner: 'crescent',
-      showBackdrop: true
-    });
-    loading.present();
-    this.afAuth.sendPasswordResetEmail(this.email)
-    .then(()=>{
-      loading.dismiss();
-      this.toast('Passwort zurückgesetzt! Überprüfe deine Mails.', 'success')
-      this.router.navigate(['/login'])
-    })
-    .catch((error)=>{
-      loading.dismiss();
-      this.toast(error.message, 'danger');
-    })
-  } else {
-    this.toast('Bitte gebe deine E-Mail ein.', 'danger')
+  async resetPassword() {
+    if (this.email) {
+      const loading = await this.loadingCtrl.create({
+        message: 'Bitte warten...',
+        spinner: 'crescent',
+        showBackdrop: true
+      });
+      loading.present();
+      this.afAuth.sendPasswordResetEmail(this.email)
+        .then(() => {
+          loading.dismiss();
+          this.toast('Passwort zurückgesetzt! Überprüfe deine Mails.', 'success')
+          this.router.navigate(['/login'])
+        })
+        .catch((error) => {
+          loading.dismiss();
+          this.toast(error.message, 'danger');
+        })
+    } else {
+      this.toast('Bitte gebe deine E-Mail ein.', 'danger')
+    }
   }
-}
 
-  async toast(message, status){
+  async toast(message, status) {
     const toast = await this.toaster.create({
       message: message,
       position: 'top',
