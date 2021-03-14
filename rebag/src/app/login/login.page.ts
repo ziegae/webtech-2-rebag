@@ -44,29 +44,15 @@ export class LoginPage implements OnInit {
     })
   }
 
-
-  /*LoginUser(value){
-    console.log("Succesessfully logged in");
-    try{
-      this.authservice.loginFireauth(value).then( resp =>{
-        console.log(resp);
-        this.authservice.loginVerificationCheck();
-      })
-    }catch(err){
-      console.log(err);
-    }
-  }*/
-
-
   //Login Firebase
-  LoginUser(value) {
+  loginUser(value) {
     console.log("Am logged in");
     try {
       this.authservice.loginFireauth(value).then(resp => {
         console.log(resp);
-        //  this.router.navigate(['tabs'])
 
         if (resp.user) {
+
           this.authservice.setUser({
             username: resp.user.displayName,
             uid: resp.user.uid

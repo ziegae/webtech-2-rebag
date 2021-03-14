@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth'
-import { Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
-import "firebase/auth";
+import {AngularFireAuth} from '@angular/fire/auth'
+import {Router} from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 export interface UserPro {
   username: string;
@@ -16,8 +15,8 @@ export interface UserPro {
 
 export class AuthService {
 
-  constructor(public auth: AngularFireAuth, public router: Router, public toaster: ToastController, public loadingCtrl: LoadingController) {
-  }
+  constructor(public auth: AngularFireAuth, public router: Router, public loadingCtrl: LoadingController) {
+   }
 
   private user: UserPro;
 
@@ -77,22 +76,4 @@ export class AuthService {
   getUID(): string {
     return this.user.uid;
   }
-
-  /*async verificationCheck(){
-    if (firebase.auth().currentUser.emailVerified == true) {
-      this.router.navigate(['start-page']);
-    }else{
-      await this.toast('Bitte verifiziere deine E-Mail!', 'danger');
-    }
-  }
-
-  async toast(message, status){
-    const toast = await this.toaster.create({
-      message: message,
-      position: 'top',
-      color: status,
-      duration: 2000
-    });
-    toast.present();
-  }*/
 }

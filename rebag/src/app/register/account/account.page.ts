@@ -15,8 +15,8 @@ export class AccountPage implements OnInit {
 
   //Messages
   validationMessages = {
-    username:[
-      {type:"required", message:"Bitte gebe einen Namen ein."}
+    name: [
+      { type: "required", message: "Bitte gebe deinen Vornamen ein." }
     ],
     email: [
       { type: "required", message: "Bitte gebe deine E-Mail ein." },
@@ -30,7 +30,6 @@ export class AccountPage implements OnInit {
       { type: "required", message: "Bitte bestätige dein Passwort." }
     ]
   }
-
   validationFormUser: FormGroup;
   loading: any;
   passwordMatch: boolean;
